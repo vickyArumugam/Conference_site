@@ -14,12 +14,12 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/" className="hover:text-white transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="" className="hover:text-white transition-colors">
                   About Us
                 </a>
               </li>
@@ -95,7 +95,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 py-4 text-center text-sm">
-          &copy; {new Date().getFullYear()} YourBrand. All rights reserved.
+          &copy; {new Date().getFullYear()}  All rights reserved.
         </div>
       </div>
     </footer>

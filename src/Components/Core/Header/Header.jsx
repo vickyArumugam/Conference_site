@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, Menu, X } from "lucide-react";
-import { Link as RouterLink } from "react-router-dom"; // Import the Link from react-router-dom
+import { Link as RouterLink } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null); // Added state to manage active dropdown on mobile
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,8 +15,10 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const toggleDropdown = (menu) => {
+    setActiveMenu(activeMenu === menu ? null : menu); // Toggle active menu
   };
 
   return (
@@ -29,112 +32,110 @@ const Header = () => {
         <div className="text-2xl font-bold">
           <RouterLink to="/">
             <img
-              src="public/images/cropped-ICVRSCET-1.png"
+              src="/images/cropped-ICVRSCET-1.png"
               className="w-34"
               alt="Logo"
             />
           </RouterLink>
         </div>
 
-        {/* Desktop Navbar */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10 text-white">
           <RouterLink to="/" className="hover:text-gray-200">
             Home
           </RouterLink>
 
+          {/* Dropdown Menus */}
+          {["About Us", "Author's Desk"].map((menu) => (
+            <div className="relative group" key={menu}>
+              <button className="hover:text-gray-200 flex items-center">
+                {menu} <ChevronDown className="ml-1 w-4 h-4" />
+              </button>
+              <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+                {menu === "About Us" ? (
+                  <>
+                    <RouterLink
+                      to="/about_conference"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      About the Conference
+                    </RouterLink>
+                    <RouterLink
+                      to="/scope_conference"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Scope of Conference
+                    </RouterLink>
+                    <RouterLink
+                      to="/organizing_committee"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Organizing Committee
+                    </RouterLink>
+                    <RouterLink
+                      to="/editorial_board"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Editorial Board
+                    </RouterLink>
+                  </>
+                ) : (
+                  <>
+                    <RouterLink
+                      to="/auth_conference_tracks"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Conference Tracks
+                    </RouterLink>
+                    <RouterLink
+                      to="/journal_publication"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Journal Publication
+                    </RouterLink>
+                    <RouterLink
+                      to="/key_dates"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Key Dates
+                    </RouterLink>
+                    <RouterLink
+                      to="/registration_details"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      Registration Details
+                    </RouterLink>
+                    <RouterLink
+                      to="/new_paper_submission"
+                      className="block px-4 py-2 hover:bg-blue-100"
+                    >
+                      New Paper Submission
+                    </RouterLink>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {/* Contact Us Dropdown */}
           <div className="relative group">
             <button className="hover:text-gray-200 flex items-center">
-              About Us <span className="ml-1">&#9662;</span>
+              Contact Us <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-40 bg-white text-blue-600 shadow-lg rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
-                to="/conference_tracks"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
+                to="/contact"
+                className="block px-4 py-2 hover:bg-blue-100"
               >
-                Earlier Conferences
-              </RouterLink>
-              <RouterLink
-                to="/about_conference"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                About the Conference
-              </RouterLink>
-              <RouterLink
-                to="/scope_conference"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Scope of Conference
-              </RouterLink>
-              <RouterLink
-                to="/about_vrscet"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                About VRSCET
-              </RouterLink>
-              <RouterLink
-                to="/organizing_committee"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Organizing Committee
-              </RouterLink>
-              <RouterLink
-                to="/editorial_board"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Editorial Board
+                Get in Touch
               </RouterLink>
             </div>
           </div>
-
-          <div className="relative group">
-            <button className="hover:text-gray-200 flex items-center">
-              Author's Desk <span className="ml-1">&#9662;</span>
-            </button>
-            <div className="absolute left-0 mt-2 w-40 bg-white text-blue-600 shadow-lg rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <RouterLink
-                to="/auth_conference_tracks"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Conference Tracks
-              </RouterLink>
-              <RouterLink
-                to="/journal publication"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Journal Publication
-              </RouterLink>
-              <RouterLink
-                to="/key_dates"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Key Dates
-              </RouterLink>
-              <RouterLink
-                to="/registration details"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                Registration Details
-              </RouterLink>
-              <RouterLink
-                to="/new paper submission"
-                className="block px-4 py-2 hover:bg-blue-100 uppercase"
-              >
-                New Paper Submission
-              </RouterLink>
-            </div>
-          </div>
-
-          <RouterLink to="#contact" className="hover:text-gray-200">
-            Contact Us
-          </RouterLink>
         </nav>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button
-            className="text-white focus:outline-none"
-            onClick={toggleMenu}
-          >
+          <button className="text-white focus:outline-none" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -144,65 +145,106 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white">
           <nav className="flex flex-col items-center space-y-4 py-4">
-            <RouterLink to="#home" className="hover:text-gray-700">
+            <RouterLink to="/" className="hover:text-gray-700">
               Home
             </RouterLink>
 
-            <div className="relative group">
-              <button className="hover:text-gray-200 flex items-center">
-                About Us <span className="ml-1">&#9662;</span>
-              </button>
-              <div className="absolute left-0 mt-2 w-40 bg-white text-blue-600 shadow-lg rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <RouterLink
-                  to="#conference_tracks"
-                  className="block px-4 py-2 hover:bg-blue-100"
+            {/* Collapsible Dropdown for Mobile */}
+            {["About Us", "Author's Desk"].map((menu) => (
+              <div key={menu} className="w-full px-4">
+                <button
+                  className="flex justify-between w-full text-left py-2 text-blue-600 font-semibold"
+                  onClick={() => toggleDropdown(menu)}
                 >
-                  Editorial Board
-                </RouterLink>
-                <RouterLink
-                  to="#review-process"
-                  className="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Review Process
-                </RouterLink>
-                <RouterLink
-                  to="#submission-guidelines"
-                  className="block px-4 py-2 hover:bg-blue-100"
-                >
-                  Submission Guidelines
-                </RouterLink>
+                  {menu} <ChevronDown className="w-5 h-5" />
+                </button>
+                {activeMenu === menu && (
+                  <div className="flex flex-col space-y-2 mt-2 px-4">
+                    {menu === "About Us" ? (
+                      <>
+                        <RouterLink
+                          to="/about_conference"
+                          className="block py-2 text-blue-600"
+                        >
+                          About the Conference
+                        </RouterLink>
+                        <RouterLink
+                          to="/scope_conference"
+                          className="block py-2 text-blue-600"
+                        >
+                          Scope of Conference
+                        </RouterLink>
+                        <RouterLink
+                          to="/organizing_committee"
+                          className="block py-2 text-blue-600"
+                        >
+                          Organizing Committee
+                        </RouterLink>
+                        <RouterLink
+                          to="/editorial_board"
+                          className="block py-2 text-blue-600"
+                        >
+                          Editorial Board
+                        </RouterLink>
+                      </>
+                    ) : (
+                      <>
+                        <RouterLink
+                          to="/auth_conference_tracks"
+                          className="block py-2 text-blue-600"
+                        >
+                          Conference Tracks
+                        </RouterLink>
+                        <RouterLink
+                          to="/journal_publication"
+                          className="block py-2 text-blue-600"
+                        >
+                          Journal Publication
+                        </RouterLink>
+                        <RouterLink
+                          to="/key_dates"
+                          className="block py-2 text-blue-600"
+                        >
+                          Key Dates
+                        </RouterLink>
+                        <RouterLink
+                          to="/registration_details"
+                          className="block py-2 text-blue-600"
+                        >
+                          Registration Details
+                        </RouterLink>
+                        <RouterLink
+                          to="/new_paper_submission"
+                          className="block py-2 text-blue-600"
+                        >
+                          New Paper Submission
+                        </RouterLink>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
 
-            <div>
-              <button className="hover:text-gray-700 flex items-center">
-                Author's Desk <span className="ml-1">&#9662;</span>
+            {/* Mobile Contact Us Dropdown */}
+            <div className="w-full px-4">
+              <button
+                className="flex justify-between w-full text-left py-2 text-blue-600 font-semibold"
+                onClick={() => toggleDropdown("Contact Us")}
+              >
+                Contact Us <ChevronDown className="w-5 h-5" />
               </button>
-              <div className="bg-blue-600 text-white mt-2 rounded shadow-lg">
-                <RouterLink
-                  to="#editorial-board"
-                  className="block px-4 py-2 hover:bg-blue-700"
-                >
-                  Editorial Board
-                </RouterLink>
-                <RouterLink
-                  to="#review-process"
-                  className="block px-4 py-2 hover:bg-blue-700"
-                >
-                  Review Process
-                </RouterLink>
-                <RouterLink
-                  to="#submission-guidelines"
-                  className="block px-4 py-2 hover:bg-blue-700"
-                >
-                  Submission Guidelines
-                </RouterLink>
-              </div>
+              {activeMenu === "Contact Us" && (
+                <div className="flex flex-col space-y-2 mt-2 px-4">
+                  <RouterLink
+                    to="/contact"
+                    className="block py-2 text-blue-600"
+                  >
+                    Get in Touch
+                  </RouterLink>
+                </div>
+              )}
             </div>
-
-            <RouterLink to="#contact" className="hover:text-gray-700">
-              Contact Us
-            </RouterLink>
           </nav>
         </div>
       )}
