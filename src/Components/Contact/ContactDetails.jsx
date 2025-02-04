@@ -1,9 +1,11 @@
-import React from 'react'
-import Editorial from './Editorial';
+import React from "react";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import ContactForm from "./Contact";
 
-export default function EditorialBoard() {
+const ContactDetails = () => {
   return (
     <>
+
     <div
       className="h-[40vh] bg-cover bg-center flex justify-center items-center text-white px-4"
       style={{
@@ -11,11 +13,12 @@ export default function EditorialBoard() {
       }}
     >
       <div className="text-center max-w-3xl">
-        <h1 className="text-4xl font-bold mb-4">Editorial Board</h1>
+        <h1 className="text-4xl font-bold mb-4">Contact Page</h1>
       </div>
-      
     </div>
-    <Editorial/>
+    <ContactForm/>
     </>
   );
-}
+};
+
+export default ContactDetails;

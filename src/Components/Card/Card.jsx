@@ -1,12 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon, animation }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Check if the component is in view and start animation
+  useEffect(() => {
+    const handleScroll = () => {
+      const pricingCardElement = document.getElementById(plan);
+      if (pricingCardElement) {
+        const rect = pricingCardElement.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check visibility on mount
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [plan]);
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: animation === "fade-left" ? -150 : animation === "fade-right" ? 150 : 0, y: animation === "fade-up" ? 150 : 0 }}
-      animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.8 }}
+      id={plan}
+      initial={{
+        opacity: 0,
+        x: animation === "fade-left" ? -150 : animation === "fade-right" ? 150 : 0,
+        y: animation === "fade-up" ? 150 : 0,
+      }}
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        x: isVisible ? 0 : animation === "fade-left" ? -150 : animation === "fade-right" ? 150 : 0,
+        y: isVisible ? 0 : animation === "fade-up" ? 150 : 0,
+      }}
+      transition={{ duration: 1 }}
       className={`bg-white shadow-lg rounded-lg overflow-hidden px-6 py-8 sm:px-8 sm:py-10 relative border-3 ${gradient}`}
     >
       {/* Ribbon */}
@@ -58,7 +89,7 @@ const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon
 const PricingTable = () => {
   const pricingPlans = [
     {
-      plan: "Basic",
+      plan: "Big Data",
       price: 29,
       features: [
         { name: "One Selected Template", included: true },
@@ -71,7 +102,7 @@ const PricingTable = () => {
       animation: "fade-left",
     },
     {
-      plan: "Premium",
+      plan: "Cloud",
       price: 59,
       features: [
         { name: "Five Existing Templates", included: true },
@@ -84,7 +115,7 @@ const PricingTable = () => {
       animation: "fade-up",
     },
     {
-      plan: "Ultimate",
+      plan: "Computing",
       price: 99,
       features: [
         { name: "All Existing Templates", included: true },

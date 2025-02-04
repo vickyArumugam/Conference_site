@@ -5,13 +5,15 @@ import PricingTable from "../Card/Card";
 import ContactForm from "../Contact/Contact";
 import Ourmission from "../OurMission/OurMission";
 import ServiceCards from "../Card/ServiceCards";
+import Papersubmission from "../../Shared/Components/Author/Papersubmission";
+// import RegisterPage from "../Register/Register";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showRegister, setShowRegister] = useState(false); // State for switching components
 
   useEffect(() => {
     const handleScroll = () => {
-      // console.log("Scroll Position:", window.scrollY);
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -20,6 +22,17 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", 
+    });
+  };
+  if (showRegister) {
+    return <Papersubmission onBack={() => setShowRegister(false)} />;
+  }
 
   return (
     <>
@@ -44,8 +57,7 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-[32px] md:text-[42px] lg:text-[54px] font-bold font-Helvetica">
-            International Conference on Advances in Big Data, Cloud, and
-            Intelligent Computing (ICABCIC)
+            International Conference on Advances in Big Data, Cloud, and Intelligent Computing (ICABCIC)
           </h1>
 
           <h2 className="mt-4 text-[28px] md:text-[38px] lg:text-[50px] font-medium font-Helvetica">
@@ -54,7 +66,7 @@ const Home = () => {
 
           <button
             className="uppercase px-6 md:px-8 py-2 md:py-3 mt-4 font-medium bg-btn-bg border border-white rounded hover:bg-red-900 animate-fade-up"
-            onClick={() => alert("Register button clicked!")}
+            onClick={() => setShowRegister(true)} // Switch to Register Page
             aria-label="Register for the conference"
           >
             Register Here
@@ -79,6 +91,17 @@ const Home = () => {
       <section className="w-full h-auto">
         <ContactForm />
       </section>
+
+      {/* Scroll to Top Button */}
+      {isScrolled && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition transform ease-in-out duration-300 animate-bounce hover:animate-pulse"
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
+      )}
     </>
   );
 };

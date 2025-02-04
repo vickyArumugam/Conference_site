@@ -2,24 +2,20 @@ import React from 'react'
 
 const Journal_Publication = () => {
   return (
-    <div>
-      <section 
-        className="py-16 sm:py-20 bg-gradient-to-r from-blue-50 to-blue-100 min-h-screen"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('public/images/maintenance.jpg')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="container mx-auto px-6 sm:px-10 lg:px-16 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6">
-              Coming Soon....
-            </h2>
-          </div>
-        </div>
-      </section>
+    <div
+      className="relative w-full h-screen bg-no-repeat bg-cover bg-center"
+      style={{
+        backgroundImage: 'url("public/images/under-con.jpeg") '
+      }}
+    >
+      {/* Overlay to darken the background */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+
+      {/* Text Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+        <h1 className="text-5xl font-extrabold mb-4">Coming Soon...</h1>
+        <p className="text-xl">We're working hard to bring something great!</p>
+      </div>
     </div>
   )
 }

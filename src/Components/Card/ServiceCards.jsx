@@ -34,7 +34,7 @@ const ServiceCards = () => {
       title: "IoT and Smart Systems",
       description:
         "Learn about the interconnected world of IoT devices and smart systems, and how they are reshaping everyday experiences.",
-      image: "public/images/download.png",
+      image: "public/images/air-3807394_1280.png",
       bgColor: "hover:bg-yellow-50",
     },
     {
@@ -49,7 +49,7 @@ const ServiceCards = () => {
   return (
     <>
     
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 w-[60%] my-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14  p-4 w-[60%] my-20">
         {services.map((service, index) => (
           <div
             key={index}

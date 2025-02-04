@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeMenu, setActiveMenu] = useState(null); // Added state to manage active dropdown on mobile
+  const [activeMenu, setActiveMenu] = useState(null);
+  const location = useLocation(); // Get the current route
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,9 +17,32 @@ const Header = () => {
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const toggleDropdown = (menu) => {
-    setActiveMenu(activeMenu === menu ? null : menu); // Toggle active menu
+    setActiveMenu(activeMenu === menu ? null : menu);
+  };
+
+  // Function to check if the link is active
+  const isActive = (path) => location.pathname === path;
+
+  // Function to check if the "About Us" section is active (for both main and dropdown links)
+  const isAboutUsActive = () => {
+    return (
+      location.pathname.startsWith("/about_conference") ||
+      location.pathname.startsWith("/scope_conference") ||
+      location.pathname.startsWith("/organizing_committee") ||
+      location.pathname.startsWith("/editorial_board")
+    );
+  };
+
+  // Function to check if the "Author's Desk" section is active
+  const isAuthorsDeskActive = () => {
+    return (
+      location.pathname.startsWith("/auth_conference_tracks") ||
+      location.pathname.startsWith("/journal_publication") ||
+      location.pathname.startsWith("/key_dates") ||
+      location.pathname.startsWith("/registration_details") ||
+      location.pathname.startsWith("/new_paper_submission")
+    );
   };
 
   return (
@@ -41,96 +65,122 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10 text-white">
-          <RouterLink to="/" className="hover:text-gray-200">
+          <RouterLink
+            to="/"
+            className={`hover:text-gray-200 ${
+              isActive("/") ? "text-yellow-400 font-bold" : ""
+            }`}
+          >
             Home
           </RouterLink>
 
-          {/* Dropdown Menus */}
-          {["About Us", "Author's Desk"].map((menu) => (
-            <div className="relative group" key={menu}>
-              <button className="hover:text-gray-200 flex items-center">
-                {menu} <ChevronDown className="ml-1 w-4 h-4" />
-              </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
-                {menu === "About Us" ? (
-                  <>
-                    <RouterLink
-                      to="/about_conference"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      About the Conference
-                    </RouterLink>
-                    <RouterLink
-                      to="/scope_conference"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Scope of Conference
-                    </RouterLink>
-                    <RouterLink
-                      to="/organizing_committee"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Organizing Committee
-                    </RouterLink>
-                    <RouterLink
-                      to="/editorial_board"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Editorial Board
-                    </RouterLink>
-                  </>
-                ) : (
-                  <>
-                    <RouterLink
-                      to="/auth_conference_tracks"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Conference Tracks
-                    </RouterLink>
-                    <RouterLink
-                      to="/journal_publication"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Journal Publication
-                    </RouterLink>
-                    <RouterLink
-                      to="/key_dates"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Key Dates
-                    </RouterLink>
-                    <RouterLink
-                      to="/registration_details"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      Registration Details
-                    </RouterLink>
-                    <RouterLink
-                      to="/new_paper_submission"
-                      className="block px-4 py-2 hover:bg-blue-100"
-                    >
-                      New Paper Submission
-                    </RouterLink>
-                  </>
-                )}
-              </div>
-            </div>
-          ))}
-
-          {/* Contact Us Dropdown */}
+          {/* About Us Dropdown */}
           <div className="relative group">
-            <button className="hover:text-gray-200 flex items-center">
-              Contact Us <ChevronDown className="ml-1 w-4 h-4" />
+            <button
+              className={`hover:text-gray-200 flex items-center ${
+                isAboutUsActive() ? "text-yellow-400 font-bold" : ""
+              }`}
+            >
+              About Us <ChevronDown className="ml-1 w-4 h-4" />
             </button>
             <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
-                to="/contact"
-                className="block px-4 py-2 hover:bg-blue-100"
+                to="/about_conference"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/about_conference") ? "text-yellow-400 font-bold" : ""
+                }`}
               >
-                Get in Touch
+                About the Conference
+              </RouterLink>
+              <RouterLink
+                to="/scope_conference"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/scope_conference") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Scope of Conference
+              </RouterLink>
+              <RouterLink
+                to="/organizing_committee"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/organizing_committee") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Organizing Committee
+              </RouterLink>
+              <RouterLink
+                to="/editorial_board"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/editorial_board") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Editorial Board
               </RouterLink>
             </div>
           </div>
+
+          {/* Author's Desk Dropdown */}
+          <div className="relative group">
+            <button
+              className={`hover:text-gray-200 flex items-center ${
+                isAuthorsDeskActive() ? "text-yellow-400 font-bold" : ""
+              }`}
+            >
+              Author's Desk <ChevronDown className="ml-1 w-4 h-4" />
+            </button>
+            <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+              <RouterLink
+                to="/auth_conference_tracks"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/auth_conference_tracks") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Conference Tracks
+              </RouterLink>
+              <RouterLink
+                to="/journal_publication"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/journal_publication") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Journal Publication
+              </RouterLink>
+              <RouterLink
+                to="/key_dates"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/key_dates") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Key Dates
+              </RouterLink>
+              <RouterLink
+                to="/registration_details"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/registration_details") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                Registration Details
+              </RouterLink>
+              <RouterLink
+                to="/new_paper_submission"
+                className={`block px-4 py-2 hover:bg-blue-100 ${
+                  isActive("/new_paper_submission") ? "text-yellow-400 font-bold" : ""
+                }`}
+              >
+                New Paper Submission
+              </RouterLink>
+            </div>
+          </div>
+
+          {/* Contact Us Link */}
+          <RouterLink
+            to="/contact"
+            className={`hover:text-gray-200 ${
+              isActive("/contact") ? "text-yellow-400 font-bold" : ""
+            }`}
+          >
+            Contact Us
+          </RouterLink>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -141,110 +191,114 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navbar */}
+      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white">
           <nav className="flex flex-col items-center space-y-4 py-4">
-            <RouterLink to="/" className="hover:text-gray-700">
+            <RouterLink
+              to="/"
+              className={`hover:text-gray-200 ${
+                isActive("/") ? "text-yellow-400 font-bold" : ""
+              }`}
+            >
               Home
             </RouterLink>
 
-            {/* Collapsible Dropdown for Mobile */}
-            {["About Us", "Author's Desk"].map((menu) => (
-              <div key={menu} className="w-full px-4">
-                <button
-                  className="flex justify-between w-full text-left py-2 text-blue-600 font-semibold"
-                  onClick={() => toggleDropdown(menu)}
-                >
-                  {menu} <ChevronDown className="w-5 h-5" />
-                </button>
-                {activeMenu === menu && (
-                  <div className="flex flex-col space-y-2 mt-2 px-4">
-                    {menu === "About Us" ? (
-                      <>
-                        <RouterLink
-                          to="/about_conference"
-                          className="block py-2 text-blue-600"
-                        >
-                          About the Conference
-                        </RouterLink>
-                        <RouterLink
-                          to="/scope_conference"
-                          className="block py-2 text-blue-600"
-                        >
-                          Scope of Conference
-                        </RouterLink>
-                        <RouterLink
-                          to="/organizing_committee"
-                          className="block py-2 text-blue-600"
-                        >
-                          Organizing Committee
-                        </RouterLink>
-                        <RouterLink
-                          to="/editorial_board"
-                          className="block py-2 text-blue-600"
-                        >
-                          Editorial Board
-                        </RouterLink>
-                      </>
-                    ) : (
-                      <>
-                        <RouterLink
-                          to="/auth_conference_tracks"
-                          className="block py-2 text-blue-600"
-                        >
-                          Conference Tracks
-                        </RouterLink>
-                        <RouterLink
-                          to="/journal_publication"
-                          className="block py-2 text-blue-600"
-                        >
-                          Journal Publication
-                        </RouterLink>
-                        <RouterLink
-                          to="/key_dates"
-                          className="block py-2 text-blue-600"
-                        >
-                          Key Dates
-                        </RouterLink>
-                        <RouterLink
-                          to="/registration_details"
-                          className="block py-2 text-blue-600"
-                        >
-                          Registration Details
-                        </RouterLink>
-                        <RouterLink
-                          to="/new_paper_submission"
-                          className="block py-2 text-blue-600"
-                        >
-                          New Paper Submission
-                        </RouterLink>
-                      </>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-
-            {/* Mobile Contact Us Dropdown */}
+            {/* About Us Dropdown */}
             <div className="w-full px-4">
               <button
-                className="flex justify-between w-full text-left py-2 text-blue-600 font-semibold"
-                onClick={() => toggleDropdown("Contact Us")}
+                className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
+                  isAboutUsActive() ? "text-yellow-400 font-bold" : ""
+                }`}
+                onClick={() => toggleDropdown("aboutUs")}
               >
-                Contact Us <ChevronDown className="w-5 h-5" />
+                About Us <ChevronDown className="w-5 h-5" />
               </button>
-              {activeMenu === "Contact Us" && (
+              {activeMenu === "aboutUs" && (
                 <div className="flex flex-col space-y-2 mt-2 px-4">
                   <RouterLink
-                    to="/contact"
+                    to="/about_conference"
                     className="block py-2 text-blue-600"
                   >
-                    Get in Touch
+                    About the Conference
+                  </RouterLink>
+                  <RouterLink
+                    to="/scope_conference"
+                    className="block py-2 text-blue-600"
+                  >
+                    Scope of Conference
+                  </RouterLink>
+                  <RouterLink
+                    to="/organizing_committee"
+                    className="block py-2 text-blue-600"
+                  >
+                    Organizing Committee
+                  </RouterLink>
+                  <RouterLink
+                    to="/editorial_board"
+                    className="block py-2 text-blue-600"
+                  >
+                    Editorial Board
                   </RouterLink>
                 </div>
               )}
             </div>
+
+            {/* Author's Desk Dropdown */}
+            <div className="w-full px-4">
+              <button
+                className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
+                  isAuthorsDeskActive() ? "text-yellow-400 font-bold" : ""
+                }`}
+                onClick={() => toggleDropdown("authorsDesk")}
+              >
+                Author's Desk <ChevronDown className="w-5 h-5" />
+              </button>
+              {activeMenu === "authorsDesk" && (
+                <div className="flex flex-col space-y-2 mt-2 px-4">
+                  <RouterLink
+                    to="/auth_conference_tracks"
+                    className="block py-2 text-blue-600"
+                  >
+                    Conference Tracks
+                  </RouterLink>
+                  <RouterLink
+                    to="/journal_publication"
+                    className="block py-2 text-blue-600"
+                  >
+                    Journal Publication
+                  </RouterLink>
+                  <RouterLink
+                    to="/key_dates"
+                    className="block py-2 text-blue-600"
+                  >
+                    Key Dates
+                  </RouterLink>
+                  <RouterLink
+                    to="/registration_details"
+                    className="block py-2 text-blue-600"
+                  >
+                    Registration Details
+                  </RouterLink>
+                  <RouterLink
+                    to="/new_paper_submission"
+                    className="block py-2 text-blue-600"
+                  >
+                    New Paper Submission
+                  </RouterLink>
+                </div>
+              )}
+            </div>
+
+            {/* Contact Us Link */}
+            <RouterLink
+              to="/contact"
+              className={`block py-2 text-blue-600 ${
+                isActive("/contact") ? "text-yellow-400 font-bold" : ""
+              }`}
+            >
+              Contact Us
+            </RouterLink>
           </nav>
         </div>
       )}

@@ -33,7 +33,7 @@ export default function PaperSubmissionForm() {
     };
 
     return (
-        <div className="py-10 px-4">
+        <div className="py-10 px-4 my-10">
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-xl">
                 <h2 className="text-3xl font-bold text-center text-indigo-600 mb-8">New Paper Submission</h2>
 
