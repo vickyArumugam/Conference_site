@@ -48,28 +48,33 @@ const ServiceCards = () => {
 
   return (
     <>
-    
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14  p-4 w-[60%] my-20">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg ${service.bgColor}`}
-          >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-gray-600 text-sm">
-                {service.description}
-              </p>
+      <div className="w-full flex flex-col items-center">
+        {/* Page Heading */}
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-20 mb-10">
+          Our Team
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-14 p-4 w-[90%] sm:w-[80%] lg:w-[70%] mb-20">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg ${service.bgColor}`}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-gray-600 text-sm">
+                  {service.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

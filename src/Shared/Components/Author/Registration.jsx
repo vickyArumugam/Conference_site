@@ -10,7 +10,7 @@ const PaymentGuidelines = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-12 px-6 ">
+    <div className="bg-gray-100 text-white py-12 px-6 ">
       <div className="max-w-4xl mx-auto space-y-6 my-10">
         {guidelines.map((text, index) => (
           <div

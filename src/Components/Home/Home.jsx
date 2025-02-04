@@ -56,16 +56,16 @@ const Home = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-[32px] md:text-[42px] lg:text-[54px] font-bold font-Helvetica">
+          <h1 className="text-[32px] md:text-[42px] lg:text-[54px] font-bold font-Helvetica leading-[1.3]">
             International Conference on Advances in Big Data, Cloud, and Intelligent Computing (ICABCIC)
           </h1>
 
-          <h2 className="mt-4 text-[28px] md:text-[38px] lg:text-[50px] font-medium font-Helvetica">
-            26<sup>th</sup> April, 2024
+          <h2 className="mt-4 text-[28px] md:text-[38px] lg:text-[50px] font-medium font-Helvetica leading-[1.3]">
+            26<sup>th</sup> April, 2025
           </h2>
 
           <button
-            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-4 font-medium bg-btn-bg border border-white rounded hover:bg-red-900 animate-fade-up"
+            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-btn-bg border border-white rounded hover:bg-red-900 animate-fade-up"
             onClick={() => setShowRegister(true)} // Switch to Register Page
             aria-label="Register for the conference"
           >
@@ -96,7 +96,7 @@ const Home = () => {
       {isScrolled && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition transform ease-in-out duration-300 animate-bounce hover:animate-pulse"
+          className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition transform ease-in-out duration-300 "
           aria-label="Scroll to top"
         >
           ↑

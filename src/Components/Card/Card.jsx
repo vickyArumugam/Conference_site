@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon, animation }) => {
+const PricingCard = ({ plan, price, features = [], gradient, animation }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Check if the component is in view and start animation
   useEffect(() => {
     const handleScroll = () => {
       const pricingCardElement = document.getElementById(plan);
@@ -17,7 +16,7 @@ const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check visibility on mount
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -38,48 +37,25 @@ const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon
         y: isVisible ? 0 : animation === "fade-up" ? 150 : 0,
       }}
       transition={{ duration: 1 }}
-      className={`bg-white shadow-lg rounded-lg overflow-hidden px-6 py-8 sm:px-8 sm:py-10 relative border-3 ${gradient}`}
-    >
-      {/* Ribbon */}
-      {ribbon && (
-        <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
-          {ribbon}
-        </div>
-      )}
-
-      {/* Price Section */}
+      className={`bg-white shadow-lg rounded-lg px-6 py-8 sm:px-8 sm:py-10 relative border-3 ${gradient} min-h-[400px] w-[260px] sm:w-[200px] lg:w-[260px] flex flex-col justify-between`} 
+      >
       <div className="flex justify-center mb-6">
-        <div
-          className={`relative ${buttonColor} rounded-full w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 flex items-center justify-center border-4 border-white shadow-lg`}
-        >
-          <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
-            <span className="absolute text-xl sm:text-2xl lg:text-3xl font-bold top-[18px] sm:top-[24px] left-[10px] sm:left-[14px]">
-              $
-            </span>
+        <div className="relative bg-blue-300 rounded-full w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center border-4 border-white shadow-lg">
+          <span className="text-3xl sm:text-4xl font-semibold text-white">
+            <span className="absolute text-xl sm:text-2xl font-bold top-[18px] left-[10px]">$</span>
             {price}
           </span>
         </div>
       </div>
-
-      {/* Plan Name */}
-      <div className="text-center text-lg sm:text-xl lg:text-2xl font-medium uppercase mb-4">{plan}</div>
-
-      {/* Features */}
+      <div className="text-center text-lg sm:text-xl font-medium uppercase mb-4">{plan}</div>
       <ul className="mb-6 space-y-4">
         {features.map((feature, index) => (
-          <li key={index} className="flex justify-between items-center text-gray-700 text-sm sm:text-base">
-            <span>{feature.name}</span>
-            <span className={`text-lg ${feature.included ? "text-green-500" : "text-red-500"}`}>
-              {feature.included ? "✔" : "✖"}
-            </span>
-          </li>
+          <li key={index} className="text-gray-700 text-sm sm:text-base">{feature}</li>
         ))}
       </ul>
-
-      {/* Button */}
       <div className="flex justify-center">
-        <button className={`px-4 py-2 sm:px-6 sm:py-3 text-white rounded-full font-medium text-sm sm:text-lg transition-all hover:opacity-90 ${buttonColor}`}>
-          Purchase
+        <button className="px-4 py-2 sm:px-6 sm:py-3 text-white bg-blue-400 rounded-full font-medium text-sm sm:text-lg transition-all hover:opacity-90">
+          Register
         </button>
       </div>
     </motion.div>
@@ -88,45 +64,10 @@ const PricingCard = ({ plan, price, features = [], gradient, buttonColor, ribbon
 
 const PricingTable = () => {
   const pricingPlans = [
-    {
-      plan: "Big Data",
-      price: 29,
-      features: [
-        { name: "One Selected Template", included: true },
-        { name: "100% Responsive Design", included: true },
-        { name: "Credit Remove Permission", included: false },
-        { name: "Lifetime Template Updates", included: false },
-      ],
-      gradient: "border-yellow-300",
-      buttonColor: "bg-yellow-500",
-      animation: "fade-left",
-    },
-    {
-      plan: "Cloud",
-      price: 59,
-      features: [
-        { name: "Five Existing Templates", included: true },
-        { name: "100% Responsive Design", included: true },
-        { name: "Credit Remove Permission", included: true },
-        { name: "Lifetime Template Updates", included: false },
-      ],
-      gradient: "border-purple-400",
-      buttonColor: "bg-purple-600",
-      animation: "fade-up",
-    },
-    {
-      plan: "Computing",
-      price: 99,
-      features: [
-        { name: "All Existing Templates", included: true },
-        { name: "100% Responsive Design", included: true },
-        { name: "Credit Remove Permission", included: true },
-        { name: "Lifetime Template Updates", included: true },
-      ],
-      gradient: "border-green-400",
-      buttonColor: "bg-green-600",
-      animation: "fade-right",
-    },
+    { plan: "Academicians", price: 29, gradient: "border-yellow-300", animation: "fade-left" },
+    { plan: "Students & PG/Ph.D Scholar", price: 59, gradient: "border-purple-400", animation: "fade-up" },
+    { plan: "Industry Delegates", price: 99, gradient: "border-green-400", animation: "fade-right" },
+    { plan: "Overseas Delegates", price: 129, gradient: "border-blue-400", animation: "fade-up" },
   ];
 
   return (
@@ -139,7 +80,7 @@ const PricingTable = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="max-w-6xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-16 lg:gap-20">
+      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
         {pricingPlans.map((plan, index) => (
           <PricingCard key={index} {...plan} />
         ))}

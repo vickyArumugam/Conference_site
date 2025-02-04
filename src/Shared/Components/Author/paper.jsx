@@ -1,155 +1,190 @@
 import React, { useState } from 'react';
 
-export default function PaperSubmissionForm() {
-    const [formData, setFormData] = useState({
-        title: '',
-        fullName: '',
-        mobileNumber: '',
-        email: '',
-        institution: '',
-        firstAuthorCategory: '',
-        file: null,
-    });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+const PaperSubmissionForm = (props) => {
+  const [fileName, setFileName] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [paperTitle, setPaperTitle] = useState('');
+  const [authorName, setAuthorName] = useState('');
+  const [mobileNo, setMobileNo] = useState('');
+  const [email, setEmail] = useState('');
+  const [institution, setInstitution] = useState('');
+  const [category, setCategory] = useState('Academicians');
 
-    const handleFileChange = (e) => {
-        setFormData({
-            ...formData,
-            file: e.target.files[0],
-        });
-    };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    if (file) {
+      setFileName(file.name);
+    }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission logic (e.g., sending data to a server)
-        alert('Paper submitted successfully!');
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
 
-    return (
-        <div className="py-10 px-4 my-10">
-            <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-xl">
-                <h2 className="text-3xl font-bold text-center text-indigo-600 mb-8">New Paper Submission</h2>
+    formData.append('paper_title', paperTitle);
+    formData.append('author_name', authorName);
+    formData.append('mobile_no', mobileNo);
+    formData.append('email', email);
+    formData.append('institution', institution);
+    formData.append('category', category);
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Paper Title */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="title">Paper Title</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            value={formData.title}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+    if (selectedFile) {
+      formData.append('file', selectedFile);
+    }
 
-                    {/* Author Full Name */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="fullName">Author Full Name</label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+    try {
+      const response = await fetch('http://localhost/mailapp/mail.php', {
+        method: 'POST',
+        body: formData,
+      });
+      const result = await response.text();
+      console.log('Server response:', result);
+      alert('Form submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error submitting form');
+    }
+  };
 
-                    {/* Author Mobile Number */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="mobileNumber">Author Mobile Number</label>
-                        <input
-                            type="text"
-                            id="mobileNumber"
-                            name="mobileNumber"
-                            value={formData.mobileNumber}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+  return (
+    <div>
+      <div className='w-full flex items-center justify-center bg-gray-100 p-4 md:p-8'>
+        <form
+          className='bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-lg md:max-w-2xl w-full space-y-6 my-10 md:my-20'
+          onSubmit={handleSubmit}
+          action="mail.php"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <h2
+            className='text-xl md:text-2xl font-semibold text-center'
+            style={{ color: props.color2 }}
+          >
+            Submit Your Paper
+          </h2>
 
-                    {/* Author Email Address */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="email">Author Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Enter Paper Title
+            </label>
+            <input
+              type='text'
+              required
+              value={paperTitle}
+              onChange={(e) => setPaperTitle(e.target.value)}
+              className='mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            />
+          </div>
 
-                    {/* Author Institution Name */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="institution">Author Institution Name</label>
-                        <input
-                            type="text"
-                            id="institution"
-                            name="institution"
-                            value={formData.institution}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Enter First Author Full Name
+            </label>
+            <input
+              type='text'
+              required
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              className='mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            />
+          </div>
 
-                    {/* First Author Category (Dropdown) */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="firstAuthorCategory">Select First Author Category</label>
-                        <select
-                            id="firstAuthorCategory"
-                            name="firstAuthorCategory"
-                            value={formData.firstAuthorCategory}
-                            onChange={handleChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        >
-                            <option value="">Select Category</option>
-                            <option value="primary">Primary Author</option>
-                            <option value="secondary">Secondary Author</option>
-                            <option value="corresponding">Corresponding Author</option>
-                        </select>
-                    </div>
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Enter First Author Mobile Number
+            </label>
+            <input
+              type='text'
+              required
+              value={mobileNo}
+              onChange={(e) => setMobileNo(e.target.value)}
+              className='mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            />
+          </div>
 
-                    {/* File Upload */}
-                    <div>
-                        <label className="block text-lg font-semibold text-gray-700" htmlFor="file">Upload Paper</label>
-                        <input
-                            type="file"
-                            id="file"
-                            name="file"
-                            onChange={handleFileChange}
-                            className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            required
-                        />
-                    </div>
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Enter First Author Email Address
+            </label>
+            <input
+              type='email'
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className='mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            />
+          </div>
 
-                    {/* Submit Button */}
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            className="w-full p-3 mt-6 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
-                            Submit Paper
-                        </button>
-                    </div>
-                </form>
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Enter First Author Institution Name
+            </label>
+            <input
+              type='text'
+              required
+              value={institution}
+              onChange={(e) => setInstitution(e.target.value)}
+              className='mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            />
+          </div>
+
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Select First Author Category
+            </label>
+            <select
+              className='appearance-none mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700'
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value='Academicians'>Academicians</option>
+              <option value='Students & PG/Ph.D Scholar'>Students & PG/Ph.D Scholar</option>
+              <option value='Industry Delegates'>Industry Delegates</option>
+              <option value='Overseas Delegates'>Overseas Delegates</option>
+            </select>
+          </div>
+
+          {/* File Upload */}
+          <div>
+            <label className='block font-medium' style={{ color: props.color2 }}>
+              Upload Paper
+            </label>
+            <div className='flex items-center mt-1'>
+              <label
+                className={`flex-grow px-4 py-2 border border-gray-300 rounded-lg ${fileName ? 'text-gray-700' : 'text-red-500'
+                  }`}
+              >
+                {fileName || 'No file chosen'}
+              </label>
+              <input
+                type='file'
+                required
+                className='hidden'
+                id='fileInput'
+                onChange={handleFileChange}
+              />
+              <label
+                htmlFor='fileInput'
+                className='ml-4 px-4 py-2 rounded-lg cursor-pointer bg-amber-200'
+              >
+                Choose File
+              </label>
             </div>
-        </div>
-    );
-}
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type='submit'
+            className='w-full py-2 rounded-lg transition duration-200 bg-green-200'
+          >
+            Submit Paper
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default PaperSubmissionForm;

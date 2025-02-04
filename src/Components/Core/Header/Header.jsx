@@ -68,7 +68,7 @@ const Header = () => {
           <RouterLink
             to="/"
             className={`hover:text-gray-200 ${
-              isActive("/") ? "text-yellow-400 font-bold" : ""
+              isActive("/") ? "text-yellow-400 " : ""
             }`}
           >
             Home
@@ -78,7 +78,7 @@ const Header = () => {
           <div className="relative group">
             <button
               className={`hover:text-gray-200 flex items-center ${
-                isAboutUsActive() ? "text-yellow-400 font-bold" : ""
+                isAboutUsActive() ? "text-yellow-400" : ""
               }`}
             >
               About Us <ChevronDown className="ml-1 w-4 h-4" />
@@ -87,7 +87,7 @@ const Header = () => {
               <RouterLink
                 to="/about_conference"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/about_conference") ? "text-yellow-400 font-bold" : ""
+                  isActive("/about_conference") ? "text-yellow-400" : ""
                 }`}
               >
                 About the Conference
@@ -95,7 +95,7 @@ const Header = () => {
               <RouterLink
                 to="/scope_conference"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/scope_conference") ? "text-yellow-400 font-bold" : ""
+                  isActive("/scope_conference") ? "text-yellow-400 " : ""
                 }`}
               >
                 Scope of Conference
@@ -103,7 +103,7 @@ const Header = () => {
               <RouterLink
                 to="/organizing_committee"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/organizing_committee") ? "text-yellow-400 font-bold" : ""
+                  isActive("/organizing_committee") ? "text-yellow-400" : ""
                 }`}
               >
                 Organizing Committee
@@ -111,7 +111,7 @@ const Header = () => {
               <RouterLink
                 to="/editorial_board"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/editorial_board") ? "text-yellow-400 font-bold" : ""
+                  isActive("/editorial_board") ? "text-yellow-400 " : ""
                 }`}
               >
                 Editorial Board
@@ -123,7 +123,7 @@ const Header = () => {
           <div className="relative group">
             <button
               className={`hover:text-gray-200 flex items-center ${
-                isAuthorsDeskActive() ? "text-yellow-400 font-bold" : ""
+                isAuthorsDeskActive() ? "text-yellow-400 " : ""
               }`}
             >
               Author's Desk <ChevronDown className="ml-1 w-4 h-4" />
@@ -132,7 +132,7 @@ const Header = () => {
               <RouterLink
                 to="/auth_conference_tracks"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/auth_conference_tracks") ? "text-yellow-400 font-bold" : ""
+                  isActive("/auth_conference_tracks") ? "text-yellow-400" : ""
                 }`}
               >
                 Conference Tracks
@@ -140,7 +140,7 @@ const Header = () => {
               <RouterLink
                 to="/journal_publication"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/journal_publication") ? "text-yellow-400 font-bold" : ""
+                  isActive("/journal_publication") ? "text-yellow-400" : ""
                 }`}
               >
                 Journal Publication
@@ -148,7 +148,7 @@ const Header = () => {
               <RouterLink
                 to="/key_dates"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/key_dates") ? "text-yellow-400 font-bold" : ""
+                  isActive("/key_dates") ? "text-yellow-400 " : ""
                 }`}
               >
                 Key Dates
@@ -156,7 +156,7 @@ const Header = () => {
               <RouterLink
                 to="/registration_details"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/registration_details") ? "text-yellow-400 font-bold" : ""
+                  isActive("/registration_details") ? "text-yellow-400 " : ""
                 }`}
               >
                 Registration Details
@@ -164,7 +164,7 @@ const Header = () => {
               <RouterLink
                 to="/new_paper_submission"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/new_paper_submission") ? "text-yellow-400 font-bold" : ""
+                  isActive("/new_paper_submission") ? "text-yellow-400 " : ""
                 }`}
               >
                 New Paper Submission
@@ -176,7 +176,7 @@ const Header = () => {
           <RouterLink
             to="/contact"
             className={`hover:text-gray-200 ${
-              isActive("/contact") ? "text-yellow-400 font-bold" : ""
+              isActive("/contact") ? "text-yellow-400 " : ""
             }`}
           >
             Contact Us
@@ -198,7 +198,7 @@ const Header = () => {
             <RouterLink
               to="/"
               className={`hover:text-gray-200 ${
-                isActive("/") ? "text-yellow-400 font-bold" : ""
+                isActive("/") ? "text-yellow-400 " : ""
               }`}
             >
               Home
@@ -208,7 +208,7 @@ const Header = () => {
             <div className="w-full px-4">
               <button
                 className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
-                  isAboutUsActive() ? "text-yellow-400 font-bold" : ""
+                  isAboutUsActive() ? "text-yellow-400 " : ""
                 }`}
                 onClick={() => toggleDropdown("aboutUs")}
               >
@@ -248,7 +248,7 @@ const Header = () => {
             <div className="w-full px-4">
               <button
                 className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
-                  isAuthorsDeskActive() ? "text-yellow-400 font-bold" : ""
+                  isAuthorsDeskActive() ? "text-yellow-400" : ""
                 }`}
                 onClick={() => toggleDropdown("authorsDesk")}
               >
@@ -294,7 +294,7 @@ const Header = () => {
             <RouterLink
               to="/contact"
               className={`block py-2 text-blue-600 ${
-                isActive("/contact") ? "text-yellow-400 font-bold" : ""
+                isActive("/contact") ? "text-yellow-400 " : ""
               }`}
             >
               Contact Us
