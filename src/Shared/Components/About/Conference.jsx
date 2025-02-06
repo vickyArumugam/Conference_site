@@ -45,9 +45,9 @@ const Conference = () => {
 
   return (
     <div>
-      <section className="py-16 sm:py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-16 sm:py-20 bg-gray-100">
         <div className="container mx-auto px-6 sm:px-10 lg:px-16">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-12">
             Big Data, Cloud, and Intelligent Computing
           </h2>
           <div>

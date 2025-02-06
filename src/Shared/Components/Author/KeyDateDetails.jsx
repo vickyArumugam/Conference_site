@@ -63,26 +63,27 @@ const KeyDatesDetails = () => {
   return (
     <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">Key Dates</h2>
+        <h2 className="text-5xl font-bold text-blue-500 mb-10">Key Dates</h2>
         <div className="bg-white shadow-lg rounded-lg p-6">
           {/* Timeline Container */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-4 top-0 h-full w-1 bg-gray-300"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 h-full w-1 bg-gray-300"></div>
 
             {/* Timeline Items */}
-            <ul className="space-y-8 text-left">
+            <ul className="space-y-8">
               {keyDates.map((item, index) => {
                 const { dot, card } = getDotColor(item.color);
+                const isEven = index % 2 === 0;
                 return (
                   <li key={index} className="flex items-start group relative">
                     {/* Timeline Dot */}
                     <div
-                      className={`absolute left-3 w-4 h-4 ${dot} rounded-full`}
+                      className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 ${dot} rounded-full`}
                     ></div>
 
                     {/* Event Details */}
-                    <div className="ml-10">
+                    <div className={`${isEven ? 'mr-auto pr-10 text-right' : 'ml-auto pl-10 text-left'} w-1/2`}>
                       <p className="text-lg font-semibold text-gray-800">
                         {item.event}
                       </p>
@@ -91,7 +92,7 @@ const KeyDatesDetails = () => {
 
                     {/* Hover Card */}
                     <div
-                      className={`absolute left-0 ml-12 mt-10 w-64 p-4 ${card} shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-10`}
+                      className={`absolute ${isEven ? 'right-0 mr-12' : 'left-0 ml-12'} mt-10 w-64 p-4 ${card} shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-10`}
                     >
                       <p className="text-sm text-gray-700">{item.description}</p>
                     </div>

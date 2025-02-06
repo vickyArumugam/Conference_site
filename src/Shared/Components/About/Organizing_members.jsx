@@ -66,8 +66,15 @@ const Organizing_members = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-6 md:p-8 gap-6 bg-gray-100 ">
+     
       {/* Unified section for all titles and cards */}
-      <div className="w-full flex flex-col items-center text-center relative bg-white rounded-lg shadow-lg p-6">
+      <div className="w-full flex flex-col items-center text-center relative p-6">
+
+      <div className="container mx-auto px-6 sm:px-10 lg:px-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-12">
+          Organizing Committee
+          </h2>
+          </div>
         <div className="w-full max-w-7xl">
           <div className="font-Trebuchet text-base md:text-lg font-medium text-gray-700">
             {/* Map through all sections and display members */}

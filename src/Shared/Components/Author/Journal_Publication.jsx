@@ -1,25 +1,28 @@
-import React from 'react'
+const JournalPublications = () => {
+  const journals = [
+    "International Journal of Research in Engineering Science (IJRES)",
+    "Journal of Emerging Technologies (JET)",
+    "International Journal of Research and Analytical Reviews (IJRAR)"
+  ];
 
-const Journal_Publication = () => {
   return (
-    <div
-      className="relative w-full h-screen bg-no-repeat bg-cover bg-center"
-      style={{
-        backgroundImage: 'url("public/images/under-con.jpeg") '
-      }}
-    >
-      {/* Overlay to darken the background */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-
-      {/* Text Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-        <h1 className="text-5xl font-extrabold mb-4">Coming Soon...</h1>
-        <p className="text-xl">We're working hard to bring something great!</p>
+    <div className="h-[600px] bg-white flex flex-col items-center justify-center p-4">
+      <p className="text-center text-lg font-medium text-blue-800 mb-6">
+        Selected, Peer reviewed and Plagiarism free high quality article will <br />
+        be recommended for publication in IEEE access and SCOPUS.
+      </p>
+      <div className="space-y-4 w-full max-w-3xl mt-8">
+        {journals.map((journal, index) => (
+          <button
+            key={index}
+            className="w-full bg-blue-500 text-white font-bold py-4 rounded-md text-center text-xl hover:bg-blue-700 transition duration-300"
+          >
+            {journal}
+          </button>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Journal_Publication
-
-
+export default JournalPublications;

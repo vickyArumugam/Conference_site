@@ -58,7 +58,7 @@ const topics = [
 const ConferenceScope = () => {
   return (
     <div className="container mx-auto p-6 my-10">
-      <h2 className="text-3xl font-bold text-center mb-8">
+      <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-12">
         Scope of the Conference
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">

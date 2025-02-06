@@ -83,7 +83,7 @@ const Header = () => {
             >
               About Us <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+            <div className="absolute left-0 mt-2 w-64 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
                 to="/about_conference"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
@@ -128,7 +128,7 @@ const Header = () => {
             >
               Author's Desk <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+            <div className="absolute left-0 mt-2 w-64 bg-white text-blue-600 shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
                 to="/auth_conference_tracks"
                 className={`block px-4 py-2 hover:bg-blue-100 ${

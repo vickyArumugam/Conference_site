@@ -1,47 +1,65 @@
-import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-
-const ConferenceTracks = (props) => {
-  const [aboutConference] = useState([
-    { field_name: "Artificial Intelligence" },
-    { field_name: "Machine Learning" },
-    { field_name: "Data Science" },
-    { field_name: "Robotics" },
-    { field_name: "Cybersecurity" },
-    { field_name: "Software Engineering" },
-    { field_name: "Blockchain Technology" },
-    { field_name: "Cloud Computing" },
-  ]);
-  const [hoverIndex, setHoverIndex] = useState(null); // For dynamic hover effect
+const ConferenceTracks = () => {
+  const aboutConference = [
+    { field_name: "Artificial Intelligence", icon: "🤖" },
+    { field_name: "Machine Learning", icon: "🧠" },
+    { field_name: "Data Science", icon: "📊" },
+    { field_name: "Robotics", icon: "🦾" },
+    { field_name: "Cybersecurity", icon: "🔒" },
+    { field_name: "Software Engineering", icon: "💻" },
+    { field_name: "Blockchain Technology", icon: "🔗" },
+    { field_name: "Cloud Computing", icon: "☁️" },
+  ];
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10 bg-white my-10">
-        {aboutConference.map((item, index) => (
-          <div
-            key={index}
-            className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-xl"
-            onMouseEnter={() => setHoverIndex(index)}
-            onMouseLeave={() => setHoverIndex(null)}
-          >
-            <div className="absolute inset-0 bg-black opacity-40 rounded-xl"></div>
-            <h1
-              className="relative z-10 text-2xl font-bold text-center"
-              style={{
-                color: hoverIndex === index ? props.hoverColor : "white", // Dynamic hover effect
-              }}
-            >
-            
-            </h1>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative z-10 text-center text-sm italic text-gray-200">
-               {item.field_name}.
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="min-h-screen bg-gray-100 text-white">
+      {/* Hero Section */}
+      <motion.div
+        className="text-center py-20"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
+          Conference Tracks
+        </h1>
+        <p className="text-xl text-gray-500">
+          Explore the cutting-edge fields shaping the future of technology.
+        </p>
+      </motion.div>
 
+      {/* Tracks Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {aboutConference.map((item, index) => (
+            <motion.div
+              key={index}
+              className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -10 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="p-6 h-full flex flex-col justify-between">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h2 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700">
+                  {item.field_name}
+                </h2>
+                <p className="text-gray-500 text-sm">
+                  Discover the latest advancements in {item.field_name.toLowerCase()}.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-blue-400 to-blue-700 h-1"></div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };

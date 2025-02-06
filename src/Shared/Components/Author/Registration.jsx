@@ -10,16 +10,44 @@ const PaymentGuidelines = () => {
   ];
 
   return (
-    <div className="bg-gray-100 text-white py-12 px-6 ">
+    <div className="bg-gray-100 text-gray-800 py-12 px-6">
       <div className="max-w-4xl mx-auto space-y-6 my-10">
         {guidelines.map((text, index) => (
           <div
             key={index}
-            className="bg-white text-gray-800 shadow-lg rounded-lg p-6 text-center text-lg sm:text-xl font-medium border-l-4 border-blue-500 hover:border-purple-600 transition-all duration-300"
+            className="bg-white shadow-lg rounded-lg p-6 text-center text-lg sm:text-xl font-medium border-l-4 border-blue-500 hover:border-purple-600 transition-all duration-300"
           >
             {text}
           </div>
         ))}
+
+        <div className="bg-white shadow-lg rounded-lg p-6 mt-8">
+          <h2 className="bg-blue-400 text-white text-center py-2 rounded-md text-xl font-semibold mb-4">
+            Bank Details
+          </h2>
+          <div className="space-y-4">
+            <div className="flex justify-between border-b pb-2">
+              <span className="font-semibold">Account Name :</span>
+              <span>J.K. Jothi Kalpana Professor, Dept. of Computer Science & Engineering VRSCET, Arasur.</span>
+            </div>
+            <div className="flex justify-between border-b pb-2">
+              <span className="font-semibold">Account Number :</span>
+              <span>045100050302269</span>
+            </div>
+            <div className="flex justify-between border-b pb-2">
+              <span className="font-semibold">Branch :</span>
+              <span>Villupuram</span>
+            </div>
+            <div className="flex justify-between border-b pb-2">
+              <span className="font-semibold">IFSC Code :</span>
+              <span>TMBL0000045</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-semibold">MICR :</span>
+              <span>605060005</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
