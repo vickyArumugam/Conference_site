@@ -13,6 +13,7 @@ import RegistrationDetails from "../../Shared/Components/Author/RegistrationDeta
 import AuthConferenceTracks from "../../Shared/Components/Author/AuthConferenceTracks";
 import ScrollToTop from "./ScrollToTop";
 import ContactDetails from "../../Components/Contact/ContactDetails";
+import PaperSubmissionForm from "../../Shared/Components/Author/paper";
 
 
 export default function AppRouter() {
@@ -47,6 +48,7 @@ export default function AppRouter() {
             <Route path="/key_dates" element={<KeyDates />} />
             <Route path="/new_paper_submission" element={<Papersubmission />} />
             <Route path="/contact" element={< ContactDetails/>} />
+
           </Route>
         </Routes>
       </BrowserRouter>

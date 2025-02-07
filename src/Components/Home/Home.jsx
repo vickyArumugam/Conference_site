@@ -23,11 +23,10 @@ const Home = () => {
     };
   }, []);
 
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", 
+      behavior: "smooth",
     });
   };
   if (showRegister) {
@@ -57,7 +56,8 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-[32px] md:text-[42px] lg:text-[54px] font-bold font-Helvetica leading-[1.3]">
-            International Conference on Advances in Big Data, Cloud, and Intelligent Computing (ICABCIC)
+            International Conference on Advances in Big Data, Cloud, and
+            Intelligent Computing (ICABCIC)
           </h1>
 
           <h2 className="mt-4 text-[28px] md:text-[38px] lg:text-[50px] font-medium font-Helvetica leading-[1.3]">
@@ -65,7 +65,7 @@ const Home = () => {
           </h2>
 
           <button
-            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-btn-bg border border-white rounded hover:bg-red-900 animate-fade-up"
+            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
             onClick={() => setShowRegister(true)} // Switch to Register Page
             aria-label="Register for the conference"
           >
@@ -74,25 +74,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Other Sections */}
-      <section className="w-full h-auto">
         <AboutPage />
-      </section>
-      <section className="w-full h-auto">
         <PricingTable />
-      </section>
-      <section className="w-full h-auto">
         <Ourmission />
-      </section>
-      <section className="w-full h-auto flex justify-center items-center bg-gray-300">
         <ServiceCards />
-      </section>
-
-      <section className="w-full h-auto">
         <ContactForm />
-      </section>
 
-      {/* Scroll to Top Button */}
+  
       {isScrolled && (
         <button
           onClick={scrollToTop}

@@ -1,114 +1,84 @@
 import React from "react";
 
-const Organizing_members = () => {
-  // Static data for sections and members
+const OrganizingMembers = () => {
   const sections = [
     {
-      title: "Big Data, Cloud, and Intelligent Computing",
+      title: "Chairman",
+      color: "bg-blue-200",
+      hoverColor: "hover:bg-blue-300",
       members: [
-        { name: "John Doe", position: "Data Scientist" },
-        { name: "Jane Smith", position: "Cloud Architect" },
-        { name: "Alex Johnson", position: "AI Specialist" },
-      ],
-      color: "blue", // Color for this section
+        {
+          name: "Dr.N.Anbazhaghan, M.E., Ph.D.",
+          position: "Principal"
+        }
+      ]
     },
     {
-      title: "Cybersecurity Innovations",
+      title: "Convenors",
+      color: "bg-green-200",
+      hoverColor: "hover:bg-green-300",
       members: [
-        { name: "Emma Davis", position: "Security Analyst" },
-        { name: "William Brown", position: "Network Security Expert" },
+        { name: "Dr.J. Joseph Ignatious, M.E., Ph.D.", position: "Professor / ECE" },
+        { name: "Dr.G.Perumal, M.E., Ph.D.", position: "Professor & Head / MECH" },
+        { name: "Dr.J.K. Jothi Kalpana, M.Tech., Ph.D.", position: "Professor / CSE" },
+        { name: "Dr.S. Shanmuga Sundaram, M.E., Ph.D.", position: "Coordinator/ S&H" },
       ],
-      color: "green", // Color for this section
     },
     {
-      title: "Blockchain & Distributed Systems",
+      title: "Advisory Committee",
+      color: "bg-purple-200",
+      hoverColor: "hover:bg-purple-300",
       members: [
-        { name: "Olivia Lee", position: "Blockchain Developer" },
-        { name: "Liam White", position: "Distributed Systems Architect" },
+        { name: "Mr.G.Sadiq Basha", position: "HOD / ECE" },
+        { name: "Mr.K. Ramesh", position: "HOD / CSE" },
+        { name: "Mr.S. Manimaran", position: "HOD / EEE" },
+        { name: "Mr.A.Kumar", position: "HOD / CIVIL" },
       ],
-      color: "purple", // Color for this section
     },
+    // {
+    //   title: "member",
+    //   color: "bg-orange-200",
+    //   hoverColor: "hover:bg-orange-300",
+    //   members: [
+    //     { name: "Mr.G.Sadiq Basha", position: "HOD / ECE" },
+    //     { name: "Mr.K. Ramesh", position: "HOD / CSE" },
+    //     { name: "Mr.S. Manimaran", position: "HOD / EEE" },
+    //     { name: "Mr.A.Kumar", position: "HOD / CIVIL" },
+    //   ],
+    // },
   ];
 
-  // Function to get Tailwind classes based on color
-  const getColorClasses = (color) => {
-    switch (color) {
-      case "blue":
-        return {
-          bg: "bg-blue-50",
-          hoverBg: "hover:bg-blue-100",
-          border: "border-blue-300",
-          text: "text-blue-700",
-        };
-      case "green":
-        return {
-          bg: "bg-green-50",
-          hoverBg: "hover:bg-green-100",
-          border: "border-green-300",
-          text: "text-green-700",
-        };
-      case "purple":
-        return {
-          bg: "bg-purple-50",
-          hoverBg: "hover:bg-purple-100",
-          border: "border-purple-300",
-          text: "text-purple-700",
-        };
-      default:
-        return {
-          bg: "bg-gray-50",
-          hoverBg: "hover:bg-gray-100",
-          border: "border-gray-300",
-          text: "text-gray-700",
-        };
-    }
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center p-6 md:p-8 gap-6 bg-gray-100 ">
-     
-      {/* Unified section for all titles and cards */}
-      <div className="w-full flex flex-col items-center text-center relative p-6">
-
+    <div className="flex flex-col items-center justify-center p-6 md:p-8 bg-gray-100">
       <div className="container mx-auto px-6 sm:px-10 lg:px-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-12">
-          Organizing Committee
-          </h2>
-          </div>
-        <div className="w-full max-w-7xl">
-          <div className="font-Trebuchet text-base md:text-lg font-medium text-gray-700">
-            {/* Map through all sections and display members */}
-            {sections.map((section, index) => {
-              const colorClasses = getColorClasses(section.color);
-              return (
-                <div key={index} className="mb-8">
-                  {/* Section Title */}
-                  <div className={`text-2xl font-bold ${colorClasses.text} mb-6`}>
-                    {section.title}
-                  </div>
-
-                  {/* Member Cards */}
-                  <div className="flex flex-wrap justify-center gap-6">
-                    {section.members.map((member, idx) => (
-                      <div
-                        key={idx}
-                        className={`${colorClasses.bg} ${colorClasses.hoverBg} ${colorClasses.border} transition-colors duration-300 border-2 p-6 w-full max-w-xs mx-auto rounded-lg shadow-md hover:shadow-lg`}
-                      >
-                        <p className={`text-xl font-semibold ${colorClasses.text}`}>
-                          {member.name}
-                        </p>
-                        <p className="text-md text-gray-600">{member.position}</p>
-                      </div>
-                    ))}
-                  </div>
+        <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-8">
+          {/* Organizing Committee */}
+        </h2>
+      </div>
+      <div className="w-full max-w-6xl">
+        {sections.map((section, index) => (
+          <div key={index} className="mb-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+              {section.title}
+            </h3>
+            <div
+              className={`grid ${section.members.length === 1 ? "grid-cols-1 place-items-center" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"}`}
+            >
+              {section.members.map((member, idx) => (
+                <div
+                  key={idx}
+                  className={`border border-gray-300 p-6 rounded-lg shadow-md text-center transition duration-300 ${section.color} ${section.hoverColor}`}
+                >
+                  <p className="text-lg font-semibold text-gray-700">{member.name}</p>
+                  <p className="text-sm text-gray-500">{member.position}</p>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Organizing_members;
+export default OrganizingMembers;

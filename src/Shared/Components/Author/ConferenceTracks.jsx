@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const ConferenceTracks = () => {
+  const navigate = useNavigate();
   const aboutConference = [
     { field_name: "Artificial Intelligence", icon: "🤖" },
     { field_name: "Machine Learning", icon: "🧠" },
@@ -21,9 +23,6 @@ const ConferenceTracks = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-          Conference Tracks
-        </h1>
         <p className="text-xl text-gray-500">
           Explore the cutting-edge fields shaping the future of technology.
         </p>
@@ -52,13 +51,21 @@ const ConferenceTracks = () => {
                   {item.field_name}
                 </h2>
                 <p className="text-gray-500 text-sm">
-                  Discover the latest advancements in {item.field_name.toLowerCase()}.
+                  Discover the latest advancements in{" "}
+                  {item.field_name.toLowerCase()}.
                 </p>
               </div>
               <div className="bg-gradient-to-r from-blue-400 to-blue-700 h-1"></div>
             </motion.div>
           ))}
         </motion.div>
+        <button
+          className=" lg:ml-[550px] uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
+          onClick={() => navigate("/new_paper_submission")} // Navigate to register page
+          aria-label="Register for the conference"
+        >
+          Register Here
+        </button>
       </div>
     </div>
   );

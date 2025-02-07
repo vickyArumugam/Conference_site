@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const KeyDatesDetails = () => {
+  const navigate = useNavigate(); 
   const keyDates = [
     {
       event: "Call for Papers Opens",
@@ -63,7 +65,7 @@ const KeyDatesDetails = () => {
   return (
     <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-5xl font-bold text-blue-500 mb-10">Key Dates</h2>
+        {/* <h2 className="text-5xl font-bold text-blue-500 mb-10">Key Dates</h2> */}
         <div className="bg-white shadow-lg rounded-lg p-6">
           {/* Timeline Container */}
           <div className="relative">
@@ -102,6 +104,13 @@ const KeyDatesDetails = () => {
             </ul>
           </div>
         </div>
+        <button
+          className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
+          onClick={() => navigate("/new_paper_submission")} // Navigate to register page
+          aria-label="Register for the conference"
+        >
+          Register Here
+        </button>
       </div>
     </div>
   );
