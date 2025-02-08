@@ -3,37 +3,6 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios"; // Import axios for API requests
 
 const ContactForm = () => {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [shake, setShake] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const width = e.currentTarget.offsetWidth;
-    const height = e.currentTarget.offsetHeight;
-
-    const centerX = width / 2;
-    const centerY = height / 2;
-
-    const offsetX = e.nativeEvent.offsetX;
-    const offsetY = e.nativeEvent.offsetY;
-
-    const angleX = ((offsetY - centerY) / height) * 10;
-    const angleY = ((offsetX - centerX) / width) * -10;
-
-    const shakeX = (Math.random() - 0.5) * 5;
-    const shakeY = (Math.random() - 0.5) * 5;
-
-    setTilt({ x: angleX, y: angleY });
-    setShake({ x: shakeX, y: shakeY });
-  };
-
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTilt({ x: 0, y: 0 });
-    setShake({ x: 0, y: 0 });
-  };
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,129 +29,121 @@ const ContactForm = () => {
       );
 
       setResponseMessage(response.data.message);
-      setFormData({ name: "", email: "", phone: "",location: "", message: "" }); // Reset form on success
+      setFormData({ name: "", email: "", phone: "", location: "", message: "" }); // Reset form on success
     } catch (error) {
       setResponseMessage("Error sending message. Please try again.");
     }
   };
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center  px-4 py-8 lg:flex-row ">
-      <div className="container mx-auto flex flex-col md:flex-row justify-center items-center my-16">
-        {/* Form Section */}
-        <div className="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden shadow-lg w-full max-w-4xl lg:w-[80%]">
-          {/* Image Section */}
-          <div
-            className="hidden md:block md:w-1/3 p-4 relative"
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              src="images/img-01.png"
-              alt="Contact"
-              className="w-full max-w-[250px] mx-auto transform transition-all duration-300 ease-in-out mt-32"
-              style={{
-                transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateX(${shake.x}px) translateY(${shake.y}px)`,
-                transition: "transform 0.1s ease-in-out",
-              }}
-            />
-          </div>
+    <div className="bg-gray-100 flex flex-col items-center px-4 py-8 lg:flex-row lg:justify-center lg:space-x-8 gap-10">
+      {/* Form Section */}
+      <form
+        className="bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-lg w-full space-y-6 my-10 md:my-20"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-xl md:text-2xl font-semibold text-center text-blue-600">
+          Get in Touch
+        </h2>
 
-          {/* Form Section */}
-          <form
-            onSubmit={handleSubmit}
-            className="w-full md:w-2/3 p-6 flex flex-col space-y-4"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 text-center">
-              Get in Touch
-            </h2>
-
-            <input
-              className="w-full p-3 rounded bg-gray-200 text-gray-700 placeholder-gray-400"
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-
-            <input
-              className="w-full p-3 rounded bg-gray-200 text-gray-700 placeholder-gray-400"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-
-            <input
-              className="w-full p-3 rounded bg-gray-200 text-gray-700 placeholder-gray-400"
-              type="number"
-              name="phone"
-              placeholder="Phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-
-            <input
-              className="w-full p-3 rounded bg-gray-200 text-gray-700 placeholder-gray-400"
-              type="text"
-              name="location"
-              placeholder="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
-
-            <textarea
-              className="w-full p-3 rounded bg-gray-200 text-gray-700 placeholder-gray-400"
-              name="message"
-              placeholder="Message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-
-            <button
-              type="submit"
-              className="w-full py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-700 transition"
-            >
-              Send
-            </button>
-
-            {responseMessage && (
-              <p className="text-center mt-2 text-gray-700">
-                {responseMessage}
-              </p>
-            )}
-          </form>
+        <div>
+          <label className="block font-medium">Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
-      </div>
+
+        <div>
+          <label className="block font-medium">Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="block font-medium">Phone</label>
+          <input
+            type="number"
+            name="phone"
+            placeholder="Phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="block font-medium">Location</label>
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="block font-medium">Message</label>
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows="4"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-2 rounded-lg transition duration-200 bg-blue-600 text-white hover:bg-blue-700"
+        >
+          Send
+        </button>
+
+        {responseMessage && (
+          <p className="text-center text-green-600 font-medium mt-4">
+            {responseMessage}
+          </p>
+        )}
+      </form>
 
       {/* Contact Information Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-4xl lg:w-[80%] text-center mr-20 h-[533px]">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-lg  flex flex-col justify-center items-center h-[710px]">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Contact Information
         </h2>
 
-        <div className="space-y-3">
-          <div className="flex justify-center items-center space-x-3">
-            <FaEnvelope className="text-blue-600" />
-            <p className="text-gray-700">info@iccsi.com</p>
+        <div className="space-y-4 text-center">
+          <div className="flex flex-col items-center space-y-2">
+            <FaEnvelope className="text-blue-600 text-2xl" />
+            <p className="text-gray-700">icvrscet@gmail.com</p>
           </div>
 
-          <div className="flex justify-center items-center space-x-3">
-            <FaPhoneAlt className="text-blue-600" />
-            <p className="text-gray-700">+91 9876543219</p>
+          <div className="flex flex-col items-center space-y-2">
+            <FaPhoneAlt className="text-blue-600 text-2xl" />
+            <p className="text-gray-700">+91 8870301652</p>
           </div>
 
-          <div className="flex justify-center items-center space-x-3">
-            <FaMapMarkerAlt className="text-blue-600" />
+          <div className="flex flex-col items-center space-y-2">
+            <FaMapMarkerAlt className="text-blue-600 text-2xl" />
             <p className="text-gray-700">
               123 Vit Street, Vellore, Tamil Nadu, 632014
             </p>
@@ -190,13 +151,15 @@ const ContactForm = () => {
         </div>
 
         {/* Conference Venue & Map */}
-        <h2 className="text-xl font-semibold">Conference Venue</h2>
-        <div className="mt-10">
+        <h2 className="text-xl font-semibold mt-8 mb-4 text-center">
+          Conference Venue
+        </h2>
+        <div className="w-full">
           <iframe
             title="Conference Venue"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4899704095584!2d79.13338031458935!3d12.969777890854377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad4742af7c4109%3A0xa8064469d2d4b80e!2sVellore%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1640937055761!5m2!1sen!2sin"
             width="100%"
-            height="240"
+            height="280"
             allowFullScreen=""
             loading="lazy"
             className="rounded-md shadow-md"

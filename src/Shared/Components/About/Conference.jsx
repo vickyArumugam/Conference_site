@@ -89,7 +89,7 @@ const Conference = () => {
                 className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
                   activeTab === "Big Data"
                     ? "border-blue-600 text-blue-600"
-                    : "border-transparent text-gray-600 hover:text-blue-600"
+                    : "border-transparent text-gray-600 hover:text-blue-600 cursor-pointer"
                 }`}
               >
                 Big Data
@@ -99,7 +99,7 @@ const Conference = () => {
                 className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
                   activeTab === "Cloud Computing"
                     ? "border-green-600 text-green-600"
-                    : "border-transparent text-gray-600 hover:text-green-600"
+                    : "border-transparent text-gray-600 hover:text-green-600 cursor-pointer"
                 }`}
               >
                 Cloud Computing
@@ -109,7 +109,7 @@ const Conference = () => {
                 className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
                   activeTab === "Intelligent Computing"
                     ? "border-yellow-600 text-yellow-600"
-                    : "border-transparent text-gray-600 hover:text-yellow-600"
+                    : "border-transparent text-gray-600 hover:text-yellow-600 cursor-pointer"
                 }`}
               >
                 Intelligent Computing
@@ -128,7 +128,7 @@ const Conference = () => {
               {renderContent()}
             </div>
             <button
-              className=" lg:ml-[580px] uppercase px-6 md:px-8 py-2 md:py-3 my-10 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
+              className="lg:ml-[580px] uppercase px-6 md:px-8 py-2 md:py-3 mt-18 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 cursor-pointer"
               onClick={() => navigate("/new_paper_submission")} // Navigate to register page
               aria-label="Register for the conference"
             >

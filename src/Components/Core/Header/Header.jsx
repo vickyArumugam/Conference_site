@@ -68,7 +68,7 @@ const Header = () => {
           <RouterLink
             to="/"
             className={`hover:text-gray-200 ${
-              isActive("/") ? "text-blue-400 " : ""
+              isActive("/") ? "text-blue-400" : ""
             }`}
           >
             Home
@@ -83,7 +83,7 @@ const Header = () => {
             >
               About Us <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-64 bg-white text-black shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+            <div className="absolute left-[-40px] mt-4 w-64 bg-white text-black shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
                 to="/about_conference"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
@@ -95,7 +95,7 @@ const Header = () => {
               <RouterLink
                 to="/scope_conference"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
-                  isActive("/scope_conference") ? "text-blue-400 " : ""
+                  isActive("/scope_conference") ? "text-blue-400" : ""
                 }`}
               >
                 Scope of Conference
@@ -123,12 +123,12 @@ const Header = () => {
           <div className="relative group">
             <button
               className={`hover:text-gray-200 flex items-center ${
-                isAuthorsDeskActive() ? "text-blue-400 " : ""
+                isAuthorsDeskActive() ? "text-blue-400" : ""
               }`}
             >
               Author's Desk <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            <div className="absolute left-0 mt-2 w-64 bg-white text-black shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+            <div className="absolute left-0 mt-4 w-64 bg-white text-black shadow-lg rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
               <RouterLink
                 to="/auth_conference_tracks"
                 className={`block px-4 py-2 hover:bg-blue-100 ${
@@ -186,121 +186,62 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button className="text-white focus:outline-none" onClick={toggleMenu}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <Menu size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
-          <nav className="flex flex-col items-center space-y-4 py-4">
-            <RouterLink
-              to="/"
-              className={`hover:text-gray-200 ${
-                isActive("/") ? "text-yellow-400 " : ""
-              }`}
-            >
-              Home
-            </RouterLink>
-
-            {/* About Us Dropdown */}
-            <div className="w-full px-4">
-              <button
-                className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
-                  isAboutUsActive() ? "text-yellow-400 " : ""
-                }`}
-                onClick={() => toggleDropdown("aboutUs")}
-              >
-                About Us <ChevronDown className="w-5 h-5" />
+        <>
+          <div className="fixed inset-0 bg-opacity-90 z-40 md:hidden" onClick={toggleMenu}></div>
+          <div className="fixed top-14 right-0 h-auto w-64 z-50 shadow-lg transform transition-transform duration-300 ease-in-out md:hidden border-l bg-white p-4">
+            <div className="flex justify-end">
+              <button className="text-gray-600 focus:outline-none" onClick={toggleMenu}>
+                <X size={24} />
               </button>
-              {activeMenu === "aboutUs" && (
-                <div className="flex flex-col space-y-2 mt-2 px-4">
-                  <RouterLink
-                    to="/about_conference"
-                    className="block py-2 text-blue-600"
-                  >
-                    About the Conference
-                  </RouterLink>
-                  <RouterLink
-                    to="/scope_conference"
-                    className="block py-2 text-blue-600"
-                  >
-                    Scope of Conference
-                  </RouterLink>
-                  <RouterLink
-                    to="/organizing_committee"
-                    className="block py-2 text-blue-600"
-                  >
-                    Organizing Committee
-                  </RouterLink>
-                  <RouterLink
-                    to="/editorial_board"
-                    className="block py-2 text-blue-600"
-                  >
-                    Editorial Board
-                  </RouterLink>
-                </div>
-              )}
             </div>
 
-            {/* Author's Desk Dropdown */}
-            <div className="w-full px-4">
-              <button
-                className={`flex justify-between w-full text-left py-2 text-blue-600 font-semibold ${
-                  isAuthorsDeskActive() ? "text-yellow-400" : ""
-                }`}
-                onClick={() => toggleDropdown("authorsDesk")}
-              >
-                Author's Desk <ChevronDown className="w-5 h-5" />
-              </button>
-              {activeMenu === "authorsDesk" && (
-                <div className="flex flex-col space-y-2 mt-2 px-4">
-                  <RouterLink
-                    to="/auth_conference_tracks"
-                    className="block py-2 text-blue-600"
-                  >
-                    Conference Tracks
-                  </RouterLink>
-                  <RouterLink
-                    to="/journal_publication"
-                    className="block py-2 text-blue-600"
-                  >
-                    Journal Publication
-                  </RouterLink>
-                  <RouterLink
-                    to="/key_dates"
-                    className="block py-2 text-blue-600"
-                  >
-                    Key Dates
-                  </RouterLink>
-                  <RouterLink
-                    to="/registration_details"
-                    className="block py-2 text-blue-600"
-                  >
-                    Registration Details
-                  </RouterLink>
-                  <RouterLink
-                    to="/new_paper_submission"
-                    className="block py-2 text-blue-600"
-                  >
-                    New Paper Submission
-                  </RouterLink>
-                </div>
-              )}
-            </div>
+            <nav className="flex flex-col space-y-4 text-gray-800">
+              <RouterLink to="/" className={`hover:text-blue-500 ${isActive("/") ? "text-blue-500 font-bold" : ""}`} onClick={toggleMenu}>
+                Home
+              </RouterLink>
 
-            {/* Contact Us Link */}
-            <RouterLink
-              to="/contact"
-              className={`block py-2 text-blue-600 ${
-                isActive("/contact") ? "text-yellow-400 " : ""
-              }`}
-            >
-              Contact Us
-            </RouterLink>
-          </nav>
-        </div>
+              <div>
+                <button className={`flex justify-between w-full text-left py-2 hover:text-blue-500 ${isAboutUsActive() ? "text-blue-500 font-bold" : ""}`} onClick={() => toggleDropdown("aboutUs")}>
+                  About Us <ChevronDown className="w-5 h-5" />
+                </button>
+                {activeMenu === "aboutUs" && (
+                  <div className="flex flex-col space-y-2 mt-2 pl-4">
+                    <RouterLink to="/about_conference" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>About the Conference</RouterLink>
+                    <RouterLink to="/scope_conference" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Scope of Conference</RouterLink>
+                    <RouterLink to="/organizing_committee" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Organizing Committee</RouterLink>
+                    <RouterLink to="/editorial_board" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Editorial Board</RouterLink>
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <button className={`flex justify-between w-full text-left py-2 hover:text-blue-500 ${isAuthorsDeskActive() ? "text-blue-500 font-bold" : ""}`} onClick={() => toggleDropdown("authorsDesk")}>
+                  Author's Desk <ChevronDown className="w-5 h-5" />
+                </button>
+                {activeMenu === "authorsDesk" && (
+                  <div className="flex flex-col space-y-2 mt-2 pl-4">
+                    <RouterLink to="/auth_conference_tracks" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Conference Tracks</RouterLink>
+                    <RouterLink to="/journal_publication" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Journal Publication</RouterLink>
+                    <RouterLink to="/key_dates" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Key Dates</RouterLink>
+                    <RouterLink to="/registration_details" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>Registration Details</RouterLink>
+                    <RouterLink to="/new_paper_submission" className="block py-2 hover:text-blue-500" onClick={toggleMenu}>New Paper Submission</RouterLink>
+                  </div>
+                )}
+              </div>
+
+              <RouterLink to="/contact" className={`hover:text-blue-500 ${isActive("/contact") ? "text-blue-500 font-bold" : ""}`} onClick={toggleMenu}>
+                Contact Us
+              </RouterLink>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );

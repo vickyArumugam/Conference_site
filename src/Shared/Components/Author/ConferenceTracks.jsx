@@ -23,7 +23,7 @@ const ConferenceTracks = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-xl text-gray-500">
+        <p className="text-2xl text-gray-500">
           Explore the cutting-edge fields shaping the future of technology.
         </p>
       </motion.div>
@@ -50,7 +50,7 @@ const ConferenceTracks = () => {
                 <h2 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700">
                   {item.field_name}
                 </h2>
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-700 text-[14px] ">
                   Discover the latest advancements in{" "}
                   {item.field_name.toLowerCase()}.
                 </p>
@@ -60,7 +60,7 @@ const ConferenceTracks = () => {
           ))}
         </motion.div>
         <button
-          className=" lg:ml-[550px] uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
+          className=" lg:ml-[550px] uppercase px-6 md:px-8 py-2 md:py-3 mt-26 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
           onClick={() => navigate("/new_paper_submission")} // Navigate to register page
           aria-label="Register for the conference"
         >

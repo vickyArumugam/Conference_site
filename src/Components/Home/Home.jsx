@@ -65,7 +65,7 @@ const Home = () => {
           </h2>
 
           <button
-            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300"
+            className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 cursor-pointer"
             onClick={() => setShowRegister(true)} // Switch to Register Page
             aria-label="Register for the conference"
           >
@@ -84,7 +84,7 @@ const Home = () => {
       {isScrolled && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition transform ease-in-out duration-300 "
+          className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition transform ease-in-out duration-300 cursor-pointer "
           aria-label="Scroll to top"
         >
           ↑

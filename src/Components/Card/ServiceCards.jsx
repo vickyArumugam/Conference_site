@@ -52,8 +52,8 @@ const ServiceCards = () => {
   return (
     <div className="w-full flex flex-col items-center">
       {/* Page Heading */}
-      <h2 className="text-4xl md:text-4xl font-bold text-blue-700 mt-20 mb-10">
-        Our Team
+      <h2 className="text-5xl md:text-5xl font-bold text-blue-700 mt-20 mb-10">
+        Meeting Content
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-14 p-4 w-[90%] sm:w-[80%] lg:w-[70%] mb-20">
@@ -79,7 +79,7 @@ const ServiceCards = () => {
 
       {/* Register Button (Redirects to "/register") */}
       <button
-        className="uppercase px-6 md:px-8 py-2 md:py-3 my-10 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 "
+        className="uppercase px-6 md:px-8 py-2 md:py-3 mb-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 cursor-pointer"
         onClick={() => navigate("/new_paper_submission")} // Navigate to register page
         aria-label="Register for the conference"
       >

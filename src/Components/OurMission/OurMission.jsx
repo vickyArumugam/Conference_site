@@ -9,7 +9,7 @@ export default function OurMission() {
       <section className="py-12 sm:py-16 bg-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-4xl font-bold text-blue-700 mb-4">
+            <h2 className="text-5xl md:text-5xl font-bold text-blue-700  mb-10">
               Our Mission
             </h2>
             <p className="text-lg sm:text-xl text-gray-700 leading-relaxed text-justify">
