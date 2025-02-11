@@ -7,7 +7,7 @@ const AboutPage = () => {
       <section className="bg-gray-100 py-10 flex items-center">
         <div className="container max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 my-10">
           {/* Content Section */}
-          <div className="md:w-2/5 text-center md:text-left">
+          <div className="md:w-5/12 text-center md:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-6 text-center">
               Cloud Computing
             </h2>
@@ -41,7 +41,7 @@ const AboutPage = () => {
       <section className="bg-gray-100 pb-10 flex ">
         <div className="container max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between space-y-6 md:space-y-0 my-10">
           {/* Video Section */}
-          <div className=" flex justify-center mt-5">
+          <div className=" md:w-1/2 flex justify-center mt-5">
             <video
               src="/Videos/128210-747086064_small.mp4"
               autoPlay
@@ -57,7 +57,7 @@ const AboutPage = () => {
           </div>
 
           {/* Content Section */}
-          <div className="md:w-2/5 text-center md:text-left">
+          <div className="md:w-5/12 text-center md:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-6 text-center">
               Big Data
             </h2>

@@ -113,7 +113,7 @@ const PricingTable = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center my-8">
+      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  xl:grid-cols-4  gap-6 justify-items-center my-8 ">
         {pricingPlans.map((plan, index) => (
           <PricingCard key={index} {...plan} />
         ))}

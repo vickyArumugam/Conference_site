@@ -141,7 +141,7 @@ const PaperSubmissionForm = () => {
             </h2>
 
             <div>
-              <label className="block font-medium">Enter Paper Title</label>
+              <label className="block font-medium">Enter Paper Title<span className="text-red-500 text-xl">*</span></label>
               <input
                 type="text"
                 required
@@ -154,6 +154,7 @@ const PaperSubmissionForm = () => {
             <div>
               <label className="block font-medium">
                 Enter First Author Full Name
+                {/* <span className="text-red-500 text-xl">*</span> */}
               </label>
               <input
                 type="text"
@@ -166,6 +167,7 @@ const PaperSubmissionForm = () => {
             <div>
               <label className="block font-medium">
                 Enter First Author Mobile Number
+                <span className="text-red-500 text-xl">*</span>
               </label>
               <input
                 type="text"
@@ -185,6 +187,7 @@ const PaperSubmissionForm = () => {
             <div>
               <label className="block font-medium">
                 Enter First Author Email Address
+                <span className="text-red-500 text-xl">*</span>
               </label>
               <input
                 type="email"
@@ -198,6 +201,7 @@ const PaperSubmissionForm = () => {
             <div>
               <label className="block font-medium">
                 Enter First Author Institution Name
+                {/* <span className="text-red-500 text-xl">*</span> */}
               </label>
               <input
                 type="text"
@@ -211,6 +215,7 @@ const PaperSubmissionForm = () => {
             <div>
               <label className="block font-medium">
                 Select First Author Category
+                <span className="text-red-500 text-xl">*</span>
               </label>
               <select
                 className="appearance-none mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
@@ -228,30 +233,37 @@ const PaperSubmissionForm = () => {
 
             {/* File Upload */}
             <div>
-              <label className="block font-medium">Upload Paper</label>
-              <div className="flex items-center mt-1">
-                <div className="flex-grow px-4 py-2 border border-gray-300 rounded-lg text-gray-700 overflow-hidden whitespace-nowrap text-ellipsis">
-                  {fileName
-                    ? fileName.length > 20
-                      ? fileName.substring(0, 17) + "..."
-                      : fileName
-                    : "No file chosen"}
-                </div>
-                <input
-                  type="file"
-                  required
-                  className="hidden"
-                  id="fileInput"
-                  onChange={handleFileChange}
-                />
-                <label
-                  htmlFor="fileInput"
-                  className="ml-4 px-4 py-2 rounded-lg cursor-pointer bg-amber-200"
-                >
-                  Choose File
-                </label>
-              </div>
-            </div>
+      <label className="block font-medium">
+        Upload Paper <span className="text-red-500 text-xl">*</span>
+      </label>
+      <div className="flex items-center mt-1 min-w-0">
+        {/* File Name Container (Shorter on Mobile, Longer on Larger Screens) */}
+        <div className="flex-grow max-w-[150px] sm:max-w-[500px] px-4 py-2 border border-gray-300 rounded-lg text-gray-700 overflow-hidden whitespace-nowrap text-ellipsis">
+          {fileName
+            ? fileName.length > 20
+              ? fileName.substring(0, 17) + "..."
+              : fileName
+            : "No file chosen"}
+        </div>
+
+        {/* Hidden File Input */}
+        <input
+          type="file"
+          required
+          className="hidden"
+          id="fileInput"
+          onChange={handleFileChange}
+        />
+
+        {/* Choose File Button */}
+        <label
+          htmlFor="fileInput"
+          className="ml-4 px-4 py-2 rounded-lg cursor-pointer bg-amber-200 flex-shrink-0"
+        >
+          Choose File
+        </label>
+      </div>
+    </div>
 
             {/* Submit Button */}
             <button

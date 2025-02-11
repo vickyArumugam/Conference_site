@@ -16,7 +16,7 @@ const ServiceCards = () => {
       title: "Next-Gen Cloud & Edge Tech",
       description:
         "Explore the evolving landscape of cloud computing, from hybrid models to edge computing, and how they are transforming industries.",
-      image: "/images/cloud.png",
+      image: "public/images/circle-technology.png",
       bgColor: "hover:bg-red-100",
     },
     {
@@ -30,7 +30,7 @@ const ServiceCards = () => {
       title: "Quantum Computing Exploration",
       description:
         "Delve into quantum computing's potential to revolutionize industries such as cryptography, medicine, and AI.",
-      image: "/images/business-1.jpg",
+      image: "public/images/artificial-intelligence.png",
       bgColor: "hover:bg-violet-50",
     },
     {
@@ -52,7 +52,7 @@ const ServiceCards = () => {
   return (
     <div className="w-full flex flex-col items-center">
       {/* Page Heading */}
-      <h2 className="text-5xl md:text-5xl font-bold text-blue-700 mt-20 mb-10">
+      <h2 className="text-5xl md:text-5xl font-bold text-blue-700 mt-20 mb-10 text-center">
         Meeting Content
       </h2>
 
@@ -65,7 +65,7 @@ const ServiceCards = () => {
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-40 object-cover"
+              className="w-full h-50 object-cover"
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold text-gray-800">

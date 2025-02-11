@@ -21,7 +21,7 @@ const Editorial = () => {
       color: "green",
     },
     {
-      name: "Dr.G.Perumal, M.E., Ph.D.",
+      name: "Dr.G.Perumal sammy, M.E., Ph.D.",
       position: "Professor & Head / MECH",
       institution: "VRS College",
       location: "Tamil Nadu, India",

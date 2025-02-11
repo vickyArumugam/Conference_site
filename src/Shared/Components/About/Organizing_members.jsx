@@ -97,7 +97,7 @@ const OrganizingMembers = () => {
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="w-28 h-28 rounded-full mb-3 object-cover border-4 border-white shadow-lg"
+                    className="w-34 h-34 rounded-full mb-3 object-cover border-4 border-white shadow-lg"
                   />
 
                   {/* Member Name */}
