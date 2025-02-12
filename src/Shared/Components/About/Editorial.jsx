@@ -68,7 +68,7 @@ const Editorial = () => {
               <p className="text-gray-500 text-sm">{member.institution}</p>
               <p className="text-gray-400 text-xs">{member.location}</p>
             </div>
-            <div className="p-4 text-gray-700 text-sm text-justify h-[120px] overflow-auto">
+            <div className="p-4 text-gray-700 text-lg text-justify h-[120px] overflow-auto">
               {member.bio}
             </div>
           </div>

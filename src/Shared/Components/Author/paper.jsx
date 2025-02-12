@@ -14,23 +14,33 @@ const PaperSubmissionForm = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-
+  
     if (file) {
-      const allowedExtensions = ["pdf", "docx"];
+      const allowedExtensions = ["pdf", "docx", "pptx"]; // Include PPTX
       const fileExtension = file.name.split(".").pop().toLowerCase();
-
+  
       if (!allowedExtensions.includes(fileExtension)) {
-        alert("Invalid file type! Please select a PDF or DOCX or  PPTX file.");
-        event.target.value = ""; // Reset the file input
+        alert("Invalid file type! Please select a PDF, DOCX, or PPTX file.");
+        event.target.value = ""; // Reset file input
         setFileName(null);
         setSelectedFile(null);
         return;
       }
-
+  
+      if (file.size > 3 * 1024 * 1024) { // Corrected to check 5MB
+        alert("File size exceeds 5MB. Please upload a smaller file.");
+        event.target.value = ""; // Reset file input
+        setFileName(null);
+        setSelectedFile(null);
+        return;
+      }
+  
+      // If both checks pass, set file state
       setSelectedFile(file);
       setFileName(file.name);
     }
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -141,7 +151,9 @@ const PaperSubmissionForm = () => {
             </h2>
 
             <div>
-              <label className="block font-medium">Enter Paper Title<span className="text-red-500 text-xl">*</span></label>
+              <label className="block font-medium">
+                Enter Paper Title<span className="text-red-500 text-xl">*</span>
+              </label>
               <input
                 type="text"
                 required
@@ -233,37 +245,37 @@ const PaperSubmissionForm = () => {
 
             {/* File Upload */}
             <div>
-      <label className="block font-medium">
-        Upload Paper <span className="text-red-500 text-xl">*</span>
-      </label>
-      <div className="flex items-center mt-1 min-w-0">
-        {/* File Name Container (Shorter on Mobile, Longer on Larger Screens) */}
-        <div className="flex-grow max-w-[150px] sm:max-w-[500px] px-4 py-2 border border-gray-300 rounded-lg text-gray-700 overflow-hidden whitespace-nowrap text-ellipsis">
-          {fileName
-            ? fileName.length > 20
-              ? fileName.substring(0, 17) + "..."
-              : fileName
-            : "No file chosen"}
-        </div>
+              <label className="block font-medium">
+                Upload Paper <span className="text-red-500 text-xl">*</span>
+              </label>
+              <div className="flex items-center mt-1 min-w-0">
+                {/* File Name Container (Shorter on Mobile, Longer on Larger Screens) */}
+                <div className="flex-grow max-w-[150px] sm:max-w-[500px] px-4 py-2 border border-gray-300 rounded-lg text-gray-700 overflow-hidden whitespace-nowrap text-ellipsis">
+                  {fileName
+                    ? fileName.length > 20
+                      ? fileName.substring(0, 17) + "..."
+                      : fileName
+                    : "No file chosen"}
+                </div>
 
-        {/* Hidden File Input */}
-        <input
-          type="file"
-          required
-          className="hidden"
-          id="fileInput"
-          onChange={handleFileChange}
-        />
+                {/* Hidden File Input */}
+                <input
+                  type="file"
+                  required
+                  className="hidden"
+                  id="fileInput"
+                  onChange={handleFileChange}
+                />
 
-        {/* Choose File Button */}
-        <label
-          htmlFor="fileInput"
-          className="ml-4 px-4 py-2 rounded-lg cursor-pointer bg-amber-200 flex-shrink-0"
-        >
-          Choose File
-        </label>
-      </div>
-    </div>
+                {/* Choose File Button */}
+                <label
+                  htmlFor="fileInput"
+                  className="ml-4 px-4 py-2 rounded-lg cursor-pointer bg-amber-200 flex-shrink-0"
+                >
+                  Choose File
+                </label>
+              </div>
+            </div>
 
             {/* Submit Button */}
             <button

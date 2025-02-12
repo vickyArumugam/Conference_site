@@ -10,7 +10,7 @@ const Conference = () => {
     switch (activeTab) {
       case "Big Data":
         return (
-          <div className="max-w-3xl mx-auto px-4">
+          <div className="mx-auto px-4">
             <p className="text-lg text-gray-700 leading-relaxed">
               Big Data refers to massive and complex datasets that traditional
               tools cannot handle, defined by the <strong>3 Vs</strong>: Volume,
@@ -128,10 +128,11 @@ const Conference = () => {
             >
               {renderContent()}
             </div>
-            <Button />
           </div>
         </div>
       </section>
+      <Button />
+
     </div>
   );
 };

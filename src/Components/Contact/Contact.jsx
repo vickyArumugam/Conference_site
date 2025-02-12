@@ -29,7 +29,13 @@ const ContactForm = () => {
       );
 
       setResponseMessage(response.data.message);
-      setFormData({ name: "", email: "", phone: "", location: "", message: "" }); // Reset form on success
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        location: "",
+        message: "",
+      }); // Reset form on success
     } catch (error) {
       setResponseMessage("Error sending message. Please try again.");
     }
@@ -39,63 +45,65 @@ const ContactForm = () => {
     <div className="bg-gray-100 flex flex-col items-center px-4 py-8 lg:flex-row lg:justify-center lg:space-x-8 gap-10">
       {/* Form Section */}
       <form
-        className="bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-lg w-full space-y-6 my-10 md:my-20"
+        className="bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-3xl w-full space-y-6 my-10 md:my-20  lg:h-[560px] md:h-[560px] sm:h-[630px]"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-xl md:text-2xl font-semibold text-center text-blue-600">
+        <h2 className=" md:text-2xl  text-center text-black text-2xl font-bold">
           Get in Touch
         </h2>
 
-        <div>
-          <label className="block font-medium">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        <div className="flex flex-col md:flex-row md:space-x-4">
+          <div className="flex-1">
+            <label className="block font-medium">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block font-medium">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="block font-medium">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div>
-          <label className="block font-medium">Phone</label>
-          <input
-            type="number"
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div>
-          <label className="block font-medium">Location</label>
-          <input
-            type="text"
-            name="location"
-            placeholder="Location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-            className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        <div className="flex flex-col md:flex-row md:space-x-4">
+          <div className="flex-1">
+            <label className="block font-medium">Phone</label>
+            <input
+              type="number"
+              name="phone"
+              placeholder="Phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block font-medium">Location</label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
 
         <div>
@@ -113,7 +121,7 @@ const ContactForm = () => {
 
         <button
           type="submit"
-          className="w-full py-2 rounded-lg transition duration-200 bg-blue-600 text-white hover:bg-blue-700"
+          className="w-full py-3 rounded-lg transition duration-200 bg-blue-600 text-white hover:bg-blue-700 mt-4 font-medium"
         >
           Send
         </button>
@@ -126,23 +134,22 @@ const ContactForm = () => {
       </form>
 
       {/* Contact Information Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-lg  flex flex-col justify-center items-center h-[710px]">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl flex flex-col justify-center items-center h-[560px] sm:m ">
+        <h2 className="text-2xl font-bold text-gray-800 my-4 text-center">
           Contact Information
         </h2>
-
-        <div className="space-y-4 text-center">
-          <div className="flex flex-col items-center space-y-2">
+        <div className="flex flex-col items-start space-y-4 text-left w-full">
+          <div className="flex items-center space-x-3">
             <FaEnvelope className="text-blue-600 text-2xl" />
             <p className="text-gray-700">icvrscet@gmail.com</p>
           </div>
 
-          <div className="flex flex-col items-center space-y-2">
+          <div className="flex items-center space-x-3">
             <FaPhoneAlt className="text-blue-600 text-2xl" />
             <p className="text-gray-700">+91 8870301652</p>
           </div>
 
-          <div className="flex flex-col items-center space-y-2">
+          <div className="flex items-center space-x-3">
             <FaMapMarkerAlt className="text-blue-600 text-2xl" />
             <p className="text-gray-700">
               123 Vit Street, Vellore, Tamil Nadu, 632014
@@ -151,7 +158,7 @@ const ContactForm = () => {
         </div>
 
         {/* Conference Venue & Map */}
-        <h2 className="text-xl font-semibold mt-8 mb-4 text-center">
+        <h2 className="text-xl font-semibold my-4 text-center">
           Conference Venue
         </h2>
         <div className="w-full">

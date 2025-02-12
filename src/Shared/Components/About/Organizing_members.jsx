@@ -72,22 +72,16 @@ const OrganizingMembers = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-6 md:p-8 bg-gray-100">
-      <div className="w-full max-w-5xl">
+      <div className="w-full ">
         {sections.map((section, index) => (
           <div key={index} className="mb-12">
-            {/* Header */}
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-6 text-center">
+            {/* Section Title */}
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-8 text-center">
               {section.title}
             </h3>
 
-            {/* Members Grid */}
-            <div
-              className={`grid gap-6 justify-center ${
-                section.members.length === 1
-                  ? "grid-cols-1 place-items-center"
-                  : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
-              }`}
-            >
+            {/* Members Flexbox - Responsive Wrapping */}
+            <div className="flex flex-wrap justify-center gap-6">
               {section.members.map((member, idx) => (
                 <div
                   key={idx}
@@ -97,7 +91,7 @@ const OrganizingMembers = () => {
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="w-34 h-34 rounded-full mb-3 object-cover border-4 border-white shadow-lg"
+                    className="w-32 h-32 rounded-full mb-3 object-cover border-4 border-white shadow-lg"
                   />
 
                   {/* Member Name */}
@@ -106,7 +100,7 @@ const OrganizingMembers = () => {
                   </p>
 
                   {/* Member Position */}
-                  <p className="text-[12px] sm:text-lg text-gray-600 font-medium">
+                  <p className="text-[12px] sm:text-lg text-gray-600 font-medium text-center">
                     {member.position}
                   </p>
                 </div>

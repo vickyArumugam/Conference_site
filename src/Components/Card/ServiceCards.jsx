@@ -16,7 +16,7 @@ const ServiceCards = () => {
       title: "Next-Gen Cloud & Edge Tech",
       description:
         "Explore the evolving landscape of cloud computing, from hybrid models to edge computing, and how they are transforming industries.",
-      image: "public/images/circle-technology.png",
+      image: "public/images/vecteezy_cloud.png",
       bgColor: "hover:bg-red-100",
     },
     {

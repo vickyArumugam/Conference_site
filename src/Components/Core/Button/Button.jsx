@@ -4,13 +4,13 @@ export default function Button() {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full h-auto md:h-[100px] flex flex-col md:flex-row items-center justify-around px-6 md:px-12 mt-20  py-4 md:py-0">
+    <section className="w-full h-auto md:h-[120px] flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-4 md:py-0 bg-green-100">
+
       {/* Left Side - Title & Content */}
-      <div className="max-w-xs sm:max-w-md text-center md:text-left">
+      <div className="max-w-md sm:max-w-lg text-center md:text-left ">
         <h2 className="text-xl md:text-2xl font-semibold text-gray-800">Conference Registration</h2>
-        <p className="text-gray-600 mt-1 w-82">
-          Join us for an insightful conference with industry experts.  
-          Secure your spot now!
+        <p className="text-gray-600 mt-1 w-full md:w-[120%]">
+          Join us for an insightful conference with industry experts. Secure your spot now!
         </p>
       </div>
 

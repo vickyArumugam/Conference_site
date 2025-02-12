@@ -70,7 +70,7 @@ const KeyDatesDetails = () => {
   };
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 mt-10">
+    <div className="pt-8 mt-10">
       <div className="max-w-4xl mx-auto text-center">
         <div className="p-6">
           {/* Timeline Container */}
@@ -79,7 +79,7 @@ const KeyDatesDetails = () => {
             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 h-full w-1 bg-gray-300"></div>
 
             {/* Timeline Items */}
-            <ul className="space-y-8">
+            <ul className="space-y-10 mb-10">
               {keyDates.map((item, index) => {
                 const { dot, card } = getDotColor(item.color);
                 const isEven = index % 2 === 0;
@@ -119,10 +119,8 @@ const KeyDatesDetails = () => {
             </ul>
           </div>
         </div>
-
-        {/* Register Button */}
-   <Button />
       </div>
+   <Button />
     </div>
   );
 };
