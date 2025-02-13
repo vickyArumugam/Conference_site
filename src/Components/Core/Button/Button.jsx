@@ -4,7 +4,7 @@ export default function Button() {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full h-auto md:h-[120px] flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-4 md:py-0 bg-green-100">
+    <section className="w-full h-auto md:h-[120px] flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-4 md:py-0 bg-green-200">
 
       {/* Left Side - Title & Content */}
       <div className="max-w-md sm:max-w-lg text-center md:text-left ">

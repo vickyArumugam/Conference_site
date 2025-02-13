@@ -24,8 +24,7 @@ const Conference = () => {
               Moreover, organizations leverage Big Data to discover hidden
               patterns, optimize operations, and create innovative solutions. As
               data sources continue to expand, advanced analytics and machine
-              learning models play a crucial role in transforming raw data into
-              actionable insights.
+              learning models play.
             </p>
           </div>
         );

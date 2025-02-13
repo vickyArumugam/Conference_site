@@ -54,7 +54,7 @@ const ContactForm = () => {
 
         <div className="flex flex-col md:flex-row md:space-x-4">
           <div className="flex-1">
-            <label className="block font-medium">Name</label>
+            <label className="block font-medium">Name<span className="text-red-500 text-xl">*</span></label>
             <input
               type="text"
               name="name"
@@ -66,7 +66,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="flex-1">
-            <label className="block font-medium">Email</label>
+            <label className="block font-medium">Email<span className="text-red-500 text-xl">*</span></label>
             <input
               type="email"
               name="email"
@@ -81,7 +81,7 @@ const ContactForm = () => {
 
         <div className="flex flex-col md:flex-row md:space-x-4">
           <div className="flex-1">
-            <label className="block font-medium">Phone</label>
+            <label className="block font-medium">Phone<span className="text-red-500 text-xl">*</span></label>
             <input
               type="number"
               name="phone"
@@ -93,7 +93,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="flex-1">
-            <label className="block font-medium">Location</label>
+            <label className="block font-medium">Location<span className="text-red-500 text-xl">*</span></label>
             <input
               type="text"
               name="location"

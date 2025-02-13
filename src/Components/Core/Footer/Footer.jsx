@@ -7,11 +7,11 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-300 pt-10 pb-6">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-gray-700 pb-12 lg:ml-52">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-gray-700 pb-12  md:ml-20 lg:ml-30  xl:ml-52">
           {/* About Section */}
           <div className="text-center sm:text-left">
             <h3 className="text-lg font-semibold text-white mt-2 mb-2">About Us</h3>
-            <p className="text-sm leading-relaxed lg:w-72 sm:mb-2">
+            <p className="text-sm leading-relaxed lg:w-46 xl:w-72 sm:mb-2 ">
               We provide cutting-edge technology insights and solutions to help
               individuals and businesses thrive in the digital age.
             </p>
@@ -111,4 +111,3 @@ const Footer = () => {
 export default Footer;
 
 
-// Copyright 2025 - V.R.S. College of Engineering and Technology
