@@ -28,7 +28,7 @@ const JournalPublications = () => {
   return (
     <div className="min-h-auto bg-gray-100 flex flex-col items-center justify-center p-8">
       {/* Subheading */}
-      <p className="text-center text-lg text-gray-600 mb-12 max-w-2xl mt-10">
+      <p className="text-center text-xl text-gray-600 mb-12 max-w-2xl mt-10">
         Selected, peer-reviewed, and plagiarism-free high-quality articles will
         be recommended for publication in IEEE Access and SCOPUS-indexed journals.
       </p>

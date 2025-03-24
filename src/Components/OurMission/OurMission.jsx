@@ -13,20 +13,19 @@ export default function OurMission() {
               Our Mission
             </h2>
             <p className="text-lg sm:text-xl text-gray-700 leading-relaxed text-justify">
-              The International Conference on Engineering Trends is a biennial
-              conference which aims to provide high quality research by bringing
-              together researchers and practitioners from academia and industry.
-              It is an international forum to communicate and discuss various
-              research findings, technological advancements and innovations in
-              broad areas of research like Advanced Computer Science and
-              Information Technology. These emerging inter disciplinary research
-              areas have helped to solve complex problems and gained prominent
-              attention in recent years. This conference will highlight
-              innovative research directions, novel applications in design,
-              analysis and modeling of the aforementioned key areas. This
-              conference will be an ideal platform for the researchers to
-              exchange and share innovative ideas, experience, challenges and
-              establish research relations worldwide.
+              The 8th International Conference on Advanced Science, Education,
+              Social Science, Technology, and Management (ICASETM-2025) stands
+              as a prominent gathering scheduled for 21st and 22nd of August in
+              Jakarta, Indonesia. This conference serves as a nexus for
+              academics, researchers, and educators worldwide, fostering the
+              exchange of pioneering research and innovative methodologies
+              across diverse educational spheres. ICASETM-2025 aims to
+              facilitate collaborative discussions, address contemporary
+              educational challenges, and explore emerging trends to drive
+              transformative changes in education. With an emphasis on practical
+              applications and impactful insights, this event endeavors to shape
+              the future of teaching practices and educational policies on a
+              global scale.
             </p>
           </div>
         </div>

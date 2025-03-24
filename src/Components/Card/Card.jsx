@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+
 const PricingCard = ({ plan, price, features = [], gradient, animation }) => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ const PricingCard = ({ plan, price, features = [], gradient, animation }) => {
     >
       <div className="flex justify-center ">
         <div className="relative rounded-full w-30 h-20 sm:w-24 sm:h-24 flex items-center justify-center ">
-          <span className="text-5xl sm:text-5xl font-bold text-black ">
+          <span className="text-5xl sm:text-6xl font-bold text-black ">
             ₹{price}
           </span>
         </div>
@@ -104,21 +105,24 @@ const PricingTable = () => {
   ];
 
   return (
-    <div
-      className="min-h-auto flex items-center justify-center px-4 py-16"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('/images/network-4851119_1280.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  xl:grid-cols-4  gap-6 justify-items-center my-8 ">
-        {pricingPlans.map((plan, index) => (
-          <PricingCard key={index} {...plan} />
-        ))}
+    <>
+  
+      <div
+        className="min-h-auto flex items-center justify-center px-4 py-16"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('/images/network-4851119_1280.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  xl:grid-cols-4  gap-6 justify-items-center my-8 ">
+          {pricingPlans.map((plan, index) => (
+            <PricingCard key={index} {...plan} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

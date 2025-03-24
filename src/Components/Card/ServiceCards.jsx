@@ -6,44 +6,44 @@ const ServiceCards = () => {
 
   const services = [
     {
-      title: "Advancements in AI & ML",
+      title: "Innovations in Applied Science",
       description:
-        "Dive into the latest advancements in AI and ML, exploring their real-world applications, impact on industries, and future developments.",
+        "Explore groundbreaking research and advancements in applied sciences, driving real-world applications and technological progress.",
       image: "/images/laptop-5572873_1280.png",
       bgColor: "hover:bg-blue-100",
     },
     {
-      title: "Next-Gen Cloud & Edge Tech",
+      title: "Emerging Trends in Engineering",
       description:
-        "Explore the evolving landscape of cloud computing, from hybrid models to edge computing, and how they are transforming industries.",
-      image: "public/images/vecteezy_cloud.png",
+        "Discover the latest developments across multidisciplinary engineering fields, from automation to sustainable solutions.",
+      image: "/images/vecteezy_cloud.png",
       bgColor: "hover:bg-red-100",
     },
     {
-      title: "Cybersecurity Innovations",
+      title: "Technology for a Sustainable Future",
       description:
-        "Understand the cutting-edge cybersecurity innovations and solutions to protect data privacy in an increasingly digital world.",
+        "Learn how innovative technologies are shaping a more sustainable and energy-efficient future for industries worldwide.",
       image: "/images/big-data-7216839_1280.png",
       bgColor: "hover:bg-green-100",
     },
     {
-      title: "Quantum Computing Exploration",
+      title: "Advanced Science",
       description:
-        "Delve into quantum computing's potential to revolutionize industries such as cryptography, medicine, and AI.",
-      image: "public/images/artificial-intelligence.png",
+        "Explore the latest scientific breakthroughs, from quantum mechanics to biotechnology, and their impact on global development.",
+      image: "/images/artificial-intelligence.png",
       bgColor: "hover:bg-violet-50",
     },
     {
-      title: "IoT and Smart Systems",
+      title: "Education",
       description:
-        "Learn about the interconnected world of IoT devices and smart systems, and how they are reshaping everyday experiences.",
+        "Understand modern educational methodologies, digital learning innovations, and strategies to enhance global education systems.",
       image: "/images/air-3807394_1280.png",
       bgColor: "hover:bg-yellow-50",
     },
     {
-      title: "Blockchain & Distributed Systems",
+      title: "Social Science",
       description:
-        "Dive into blockchain technologies, decentralized finance, and distributed systems, and how they are transforming trust and transparency.",
+        "Analyze contemporary social science trends, including human behavior, societal transformations, and global policy impacts.",
       image: "/images/network (1).png",
       bgColor: "hover:bg-pink-50",
     },
@@ -53,7 +53,7 @@ const ServiceCards = () => {
     <div className="w-full flex flex-col items-center">
       {/* Page Heading */}
       <h2 className="text-5xl md:text-5xl font-bold text-blue-700 mt-20 mb-10 text-center">
-        Meeting Content
+      Meeting Content
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-14 p-4 w-[90%] sm:w-[80%] lg:w-[70%] mb-20">
@@ -68,16 +68,16 @@ const ServiceCards = () => {
               className="w-full h-50 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-[20px] font-semibold text-gray-800">
                 {service.title}
               </h3>
-              <p className="mt-2 text-gray-600 text-sm">{service.description}</p>
+              <p className="mt-2 text-gray-600 text-[16px]">{service.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Register Button (Redirects to "/register") */}
+      {/* Register Button (Redirects to "/new_paper_submission") */}
       <button
         className="uppercase px-6 md:px-8 py-2 md:py-3 mb-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 cursor-pointer"
         onClick={() => navigate("/new_paper_submission")} // Navigate to register page

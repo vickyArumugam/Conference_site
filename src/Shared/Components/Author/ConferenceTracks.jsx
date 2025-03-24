@@ -5,14 +5,14 @@ import Button from "../../../Components/Core/Button/Button";
 const ConferenceTracks = () => {
   const navigate = useNavigate();
   const aboutConference = [
-    { field_name: "Artificial Intelligence", icon: "🤖" },
-    { field_name: "Machine Learning", icon: "🧠" },
-    { field_name: "Data Science", icon: "📊" },
-    { field_name: "Robotics", icon: "🦾" },
-    { field_name: "Cybersecurity", icon: "🔒" },
-    { field_name: "Software Engineering", icon: "💻" },
-    { field_name: "Blockchain Technology", icon: "🔗" },
-    { field_name: "Cloud Computing", icon: "☁️" },
+    { field_name: "Applied Science & Innovations", icon: "🧪" },
+    { field_name: "Multidisciplinary Engineering Trends", icon: "🏗️" },
+    { field_name: "Emerging Technologies & AI", icon: "🤖" },
+    { field_name: "Sustainable & Industrial Applications", icon: "🌍" },
+    { field_name: "Biomedical & Healthcare Technology", icon: "⚕️" },
+    { field_name: "Quantum Computing & IoT", icon: "🔬" },
+    { field_name: "Smart Cities & Infrastructure", icon: "🏙️" },
+    { field_name: "Cybersecurity & Risk Management", icon: "🔒" },
   ];
 
   return (
@@ -24,8 +24,9 @@ const ConferenceTracks = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-2xl text-gray-500">
-          Explore the cutting-edge fields shaping the future of technology.
+ 
+        <p className="text-lg text-gray-600 mt-4">
+          Exploring breakthroughs and innovations shaping the future.
         </p>
       </motion.div>
 
@@ -51,8 +52,8 @@ const ConferenceTracks = () => {
                 <h2 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700">
                   {item.field_name}
                 </h2>
-                <p className="text-gray-700 text-[14px] ">
-                  Discover the latest advancements in{" "}
+                <p className="text-gray-700 text-[14px]">
+                  Discover groundbreaking research and advancements in{" "}
                   {item.field_name.toLowerCase()}.
                 </p>
               </div>
@@ -60,8 +61,8 @@ const ConferenceTracks = () => {
             </motion.div>
           ))}
         </motion.div>
-   
       </div>
+
       <Button />
     </div>
   );

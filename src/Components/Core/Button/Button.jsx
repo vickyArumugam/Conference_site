@@ -7,9 +7,9 @@ export default function Button() {
     <section className="w-full h-auto md:h-[120px] flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-4 md:py-0 bg-green-200">
 
       {/* Left Side - Title & Content */}
-      <div className="max-w-md sm:max-w-lg text-center md:text-left ">
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">Conference Registration</h2>
-        <p className="text-gray-600 mt-1 w-full md:w-[120%]">
+      <div className="max-w-md sm:max-w-xl text-center md:text-left ">
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Conference Registration</h2>
+        <p className="text-gray-600 mt-1 w-full md:w-[120%] text-[18px]">
           Join us for an insightful conference with industry experts. Secure your spot now!
         </p>
       </div>

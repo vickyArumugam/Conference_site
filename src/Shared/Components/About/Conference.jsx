@@ -3,69 +3,59 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../Components/Core/Button/Button";
 
 const Conference = () => {
-  const [activeTab, setActiveTab] = useState("Big Data");
+  const [activeTab, setActiveTab] = useState("Applied Science");
   const navigate = useNavigate();
 
   const renderContent = () => {
     switch (activeTab) {
-      case "Big Data":
+      case "Applied Science":
         return (
           <div className="mx-auto px-4">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Big Data refers to massive and complex datasets that traditional
-              tools cannot handle, defined by the <strong>3 Vs</strong>: Volume,
-              Velocity, and Variety. It is generated from sources like social
-              media, sensors, and IoT devices, enabling data-driven
-              decision-making and predictive analytics. Technologies like{" "}
-              <strong>Hadoop</strong> and <strong>Spark</strong> are used to
-              process and analyze this data.
+              Applied Science plays a crucial role in translating theoretical
+              knowledge into practical applications across industries. It
+              integrates disciplines like physics, chemistry, and biology to
+              develop innovative solutions for real-world challenges.
             </p>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              Moreover, organizations leverage Big Data to discover hidden
-              patterns, optimize operations, and create innovative solutions. As
-              data sources continue to expand, advanced analytics and machine
-              learning models play.
+              This field contributes to advancements in <strong>healthcare</strong>,
+              <strong>materials engineering</strong>, and <strong>energy efficiency</strong>,
+              driving technological progress and improving everyday life.
             </p>
           </div>
         );
-      case "Cloud Computing":
+      case "Multidisciplinary Engineering":
         return (
           <div className="max-w-3xl mx-auto px-4">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Cloud Computing is the delivery of computing services like
-              storage, servers, databases, and software over the internet. It
-              offers <strong>scalability</strong>, <strong>flexibility</strong>,
-              and <strong>cost-efficiency</strong> by eliminating the need for
-              physical infrastructure. Services are categorized into{" "}
-              <strong>IaaS</strong>, <strong>PaaS</strong>, and{" "}
-              <strong>SaaS</strong>.
+              Multidisciplinary Engineering is an evolving field that combines
+              multiple branches of engineering to solve complex challenges.
+              It involves the integration of <strong>mechanical</strong>,
+              <strong>electrical</strong>, <strong>civil</strong>, and
+              <strong>software engineering</strong> to drive innovation.
             </p>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              In addition, cloud solutions enable seamless collaboration and
-              rapid deployment of applications. Enterprises can scale resources
-              on-demand and benefit from robust security measures and disaster
-              recovery options, making cloud computing an indispensable tool in
-              today’s digital landscape.
+              This approach is essential for modern advancements in areas such
+              as sustainable infrastructure, smart cities, and robotics.
+              Engineers collaborate across disciplines to enhance functionality,
+              efficiency, and sustainability in technological developments.
             </p>
           </div>
         );
-      case "Intelligent Computing":
+      case "Technology & Innovation":
         return (
           <div className="max-w-3xl mx-auto px-4">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Intelligent Computing refers to advanced systems that combine{" "}
-              <strong>AI</strong>, <strong>machine learning</strong>, and{" "}
-              <strong>data analytics</strong> to mimic human-like
-              decision-making. It leverages technologies like neural networks,
-              natural language processing, and computer vision to solve complex
-              problems.
+              Technology & Innovation fuel the modern world by fostering
+              groundbreaking advancements in various sectors. It encompasses
+              emerging fields such as <strong>AI</strong>, <strong>quantum computing</strong>,
+              and <strong>biotechnology</strong> to reshape industries and daily life.
             </p>
             <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              Furthermore, these systems continuously learn and adapt, offering
-              improved performance over time. Intelligent computing is
-              revolutionizing various industries by automating processes,
-              enhancing predictive capabilities, and creating personalized
-              experiences for users.
+              As new technologies emerge, businesses and researchers focus on
+              improving efficiency, automation, and connectivity. The rapid
+              evolution of technology continues to revolutionize industries,
+              enhancing productivity and global communication.
             </p>
           </div>
         );
@@ -78,49 +68,47 @@ const Conference = () => {
     <div>
       <section className="py-16 sm:py-20 bg-gray-100">
         <div className="container mx-auto px-6 sm:px-10 lg:px-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center text-blue-500 mb-12">
-            {/* About Conference */}
-          </h2>
+        
           <div>
             {/* Tabs for the topics */}
             <div className="flex justify-center mb-8">
               <button
-                onClick={() => setActiveTab("Big Data")}
-                className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
-                  activeTab === "Big Data"
+                onClick={() => setActiveTab("Applied Science")}
+                className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors  ${
+                  activeTab === "Applied Science"
                     ? "border-blue-600 text-blue-600"
                     : "border-transparent text-gray-600 hover:text-blue-600 cursor-pointer"
                 }`}
               >
-                Big Data
+                Applied Science
               </button>
               <button
-                onClick={() => setActiveTab("Cloud Computing")}
+                onClick={() => setActiveTab("Multidisciplinary Engineering")}
                 className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
-                  activeTab === "Cloud Computing"
+                  activeTab === "Multidisciplinary Engineering"
                     ? "border-green-600 text-green-600"
                     : "border-transparent text-gray-600 hover:text-green-600 cursor-pointer"
                 }`}
               >
-                Cloud Computing
+                Multidisciplinary Engineering
               </button>
               <button
-                onClick={() => setActiveTab("Intelligent Computing")}
+                onClick={() => setActiveTab("Technology & Innovation")}
                 className={`px-4 py-2 mx-2 font-semibold border-b-2 transition-colors ${
-                  activeTab === "Intelligent Computing"
+                  activeTab === "Technology & Innovation"
                     ? "border-yellow-600 text-yellow-600"
                     : "border-transparent text-gray-600 hover:text-yellow-600 cursor-pointer"
                 }`}
               >
-                Intelligent Computing
+                Technology  Innovation
               </button>
             </div>
             {/* Content Display with dynamic background colors */}
             <div
               className={`max-w-3xl mx-auto flex p-8 rounded-xl shadow-lg ${
-                activeTab === "Big Data"
+                activeTab === "Applied Science"
                   ? "bg-blue-100"
-                  : activeTab === "Cloud Computing"
+                  : activeTab === "Multidisciplinary Engineering"
                   ? "bg-green-50"
                   : "bg-yellow-50"
               }`}
@@ -131,7 +119,6 @@ const Conference = () => {
         </div>
       </section>
       <Button />
-
     </div>
   );
 };

@@ -121,7 +121,7 @@ const ContactForm = () => {
 
         <button
           type="submit"
-          className="w-full py-3 rounded-lg transition duration-200 bg-blue-600 text-white hover:bg-blue-700 mt-4 font-medium"
+          className="w-full py-3 rounded-lg transition duration-200 bg-blue-600 text-white hover:bg-blue-700 mt-4 font-medium cursor-pointer"
         >
           Send
         </button>
@@ -140,17 +140,17 @@ const ContactForm = () => {
         </h2>
         <div className="flex flex-col items-start space-y-4 text-left w-full">
           <div className="flex items-center space-x-3">
-            <FaEnvelope className="text-blue-600 text-2xl" />
+            <FaEnvelope className="text-blue-600 text-3xl" />
             <p className="text-gray-700">icvrscet@gmail.com</p>
           </div>
 
           <div className="flex items-center space-x-3">
-            <FaPhoneAlt className="text-blue-600 text-2xl" />
+            <FaPhoneAlt className="text-blue-600 text-3xl" />
             <p className="text-gray-700">+91 8870301652</p>
           </div>
 
           <div className="flex items-center space-x-3">
-            <FaMapMarkerAlt className="text-blue-600 text-2xl" />
+            <FaMapMarkerAlt className="text-blue-600 text-3xl" />
             <p className="text-gray-700">
               123 Vit Street, Vellore, Tamil Nadu, 632014
             </p>

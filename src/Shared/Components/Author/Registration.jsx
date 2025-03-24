@@ -21,59 +21,60 @@ const PaymentGuidelines = () => {
           </div>
         ))}
 
-<div className="bg-white shadow-lg rounded-lg overflow-hidden mt-8">
-      {/* Card Header */}
-      <div className="bg-blue-50 p-6">
-        <h2 className="text-2xl font-semibold text-blue-800 text-center">
-          Bank Details
-        </h2>
-      </div>
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden mt-8">
+          <div className="bg-blue-50 p-6">
+            <h2 className="text-2xl font-semibold text-blue-800 text-center">
+              Bank Details
+            </h2>
+          </div>
+          <div className="p-6">
+            <table className="w-full">
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-gray-50 transition duration-200">
+                  <td className="py-3 px-4 font-semibold text-gray-700">
+                    Account Name
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">
+                    J.K. Jothi Kalpana Professor, Dept. of Computer Science &
+                    Engineering VRSCET, Arasur.
+                  </td>
+                </tr>
 
-      {/* Card Body */}
-      <div className="p-6">
-        <table className="w-full">
-          <tbody className="divide-y divide-gray-200">
-            {/* Account Name */}
-            <tr className="hover:bg-gray-50 transition duration-200">
-              <td className="py-3 px-4 font-semibold text-gray-700">
-                Account Name
-              </td>
-              <td className="py-3 px-4 text-gray-600">
-                J.K. Jothi Kalpana Professor, Dept. of Computer Science & Engineering VRSCET, Arasur.
-              </td>
-            </tr>
+                {/* Account Number */}
+                <tr className="hover:bg-gray-50 transition duration-200">
+                  <td className="py-3 px-4 font-semibold text-gray-700">
+                    Account Number
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">045100050302269</td>
+                </tr>
 
-            {/* Account Number */}
-            <tr className="hover:bg-gray-50 transition duration-200">
-              <td className="py-3 px-4 font-semibold text-gray-700">
-                Account Number
-              </td>
-              <td className="py-3 px-4 text-gray-600">045100050302269</td>
-            </tr>
+                {/* Branch */}
+                <tr className="hover:bg-gray-50 transition duration-200">
+                  <td className="py-3 px-4 font-semibold text-gray-700">
+                    Branch
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">Villupuram</td>
+                </tr>
 
-            {/* Branch */}
-            <tr className="hover:bg-gray-50 transition duration-200">
-              <td className="py-3 px-4 font-semibold text-gray-700">Branch</td>
-              <td className="py-3 px-4 text-gray-600">Villupuram</td>
-            </tr>
+                {/* IFSC Code */}
+                <tr className="hover:bg-gray-50 transition duration-200">
+                  <td className="py-3 px-4 font-semibold text-gray-700">
+                    IFSC Code
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">TMBL0000045</td>
+                </tr>
 
-            {/* IFSC Code */}
-            <tr className="hover:bg-gray-50 transition duration-200">
-              <td className="py-3 px-4 font-semibold text-gray-700">
-                IFSC Code
-              </td>
-              <td className="py-3 px-4 text-gray-600">TMBL0000045</td>
-            </tr>
-
-            {/* MICR */}
-            <tr className="hover:bg-gray-50 transition duration-200">
-              <td className="py-3 px-4 font-semibold text-gray-700">MICR</td>
-              <td className="py-3 px-4 text-gray-600">605060005</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                {/* MICR */}
+                <tr className="hover:bg-gray-50 transition duration-200">
+                  <td className="py-3 px-4 font-semibold text-gray-700">
+                    MICR
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">605060005</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );

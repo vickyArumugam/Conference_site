@@ -6,11 +6,11 @@ import ContactForm from "../Contact/Contact";
 import Ourmission from "../OurMission/OurMission";
 import ServiceCards from "../Card/ServiceCards";
 import Papersubmission from "../../Shared/Components/Author/Papersubmission";
-// import RegisterPage from "../Register/Register";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showRegister, setShowRegister] = useState(false); // State for switching components
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,16 +26,14 @@ const Home = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
+      
       behavior: "smooth",
     });
   };
-  if (showRegister) {
-    return <Papersubmission onBack={() => setShowRegister(false)} />;
-  }
+  
 
   return (
     <>
-      {/* Header with Scroll Effect */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"
@@ -54,10 +52,9 @@ const Home = () => {
         ></div>
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
           <h1 className="text-[32px] md:text-[42px] lg:text-[54px] font-bold font-Helvetica leading-[1.3]">
-            International Conference on Advances in Big Data, Cloud, and
-            Intelligent Computing (ICABCIC)
+          International Conference on Applied Science, Multidisciplinary Engineering & Technology (ICASMET)
           </h1>
 
           <h2 className="mt-4 text-[28px] md:text-[38px] lg:text-[50px] font-medium font-Helvetica leading-[1.3]">
@@ -66,7 +63,7 @@ const Home = () => {
 
           <button
             className="uppercase px-6 md:px-8 py-2 md:py-3 mt-20 font-medium bg-blue-600 border border-white rounded-lg text-white hover:bg-blue-700 transition-all duration-300 cursor-pointer"
-            onClick={() => setShowRegister(true)} // Switch to Register Page
+            onClick={() => navigate("/new_paper_submission")}
             aria-label="Register for the conference"
           >
             Register Here
@@ -80,7 +77,6 @@ const Home = () => {
         <ServiceCards />
         <ContactForm />
 
-  
       {isScrolled && (
         <button
           onClick={scrollToTop}
