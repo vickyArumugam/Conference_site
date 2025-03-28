@@ -10,7 +10,7 @@ const OrganizingMembers = () => {
         {
           name: "Dr.N.Anbazhaghan, M.E., Ph.D.",
           position: "Principal",
-          photo: "/images/profile2.jpeg",
+          photo: "/images/profile6.webp",
         },
       ],
     },
@@ -22,22 +22,22 @@ const OrganizingMembers = () => {
         {
           name: "Dr.J. Joseph Ignatious, M.E., Ph.D.",
           position: "Professor / ECE",
-          photo: "/images/prifile1.jpg",
+          photo: "/images/prifile1.webp",
         },
         {
           name: "Dr.G.Perumal, M.E., Ph.D.",
           position: "Professor & Head",
-          photo: "/images/profile2.jpeg",
+          photo: "/images/profile6.webp",
         },
         {
           name: "Dr.J.K. Jothi Kalpana, M.Tech., Ph.D.",
           position: "Professor / CSE",
-          photo: "/images/profile5.jpg",
+          photo: "/images/profile5.webp",
         },
         {
           name: "Dr.S. Shanmuga Sundaram, M.E., Ph.D.",
           position: "Coordinator/ S&H",
-          photo: "/images/profile6.jpg",
+          photo: "/images/profile6.webp",
         },
       ],
     },
@@ -49,22 +49,22 @@ const OrganizingMembers = () => {
         {
           name: "Mr.G.Sadiq Basha",
           position: "HOD / ECE",
-          photo: "/images/profile2.jpeg",
+          photo: "/images/profile5.webp",
         },
         {
           name: "Mr.K. Ramesh",
           position: "HOD / CSE",
-          photo: "/images/profile2.jpeg",
+          photo: "/images/prifile1.webp",
         },
         {
           name: "Mr.S. Manimaran",
           position: "HOD / EEE",
-          photo: "/images/profile2.jpeg",
+          photo: "/images/profile6.webp",
         },
         {
           name: "Mr.A.Kumar",
           position: "HOD / CIVIL",
-          photo: "/images/prifile1.jpg",
+          photo: "/images/prifile1.webp",
         },
       ],
     },

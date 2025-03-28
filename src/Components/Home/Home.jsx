@@ -5,8 +5,8 @@ import PricingTable from "../Card/Card";
 import ContactForm from "../Contact/Contact";
 import Ourmission from "../OurMission/OurMission";
 import ServiceCards from "../Card/ServiceCards";
-import Papersubmission from "../../Shared/Components/Author/Papersubmission";
 import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,6 +34,7 @@ const Home = () => {
 
   return (
     <>
+
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"
@@ -47,7 +48,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/images/business-8941891_1920.jpg')`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/images/business-8941891_1920.webp')`,
           }}
         ></div>
 

@@ -9,42 +9,42 @@ const ServiceCards = () => {
       title: "Innovations in Applied Science",
       description:
         "Explore groundbreaking research and advancements in applied sciences, driving real-world applications and technological progress.",
-      image: "/images/laptop-5572873_1280.png",
+      image: "/images/laptop-5572873_1280.webp",
       bgColor: "hover:bg-blue-100",
     },
     {
       title: "Emerging Trends in Engineering",
       description:
         "Discover the latest developments across multidisciplinary engineering fields, from automation to sustainable solutions.",
-      image: "/images/vecteezy_cloud.png",
+      image: "/images/vecteezy_cloud.webp",
       bgColor: "hover:bg-red-100",
     },
     {
       title: "Technology for a Sustainable Future",
       description:
         "Learn how innovative technologies are shaping a more sustainable and energy-efficient future for industries worldwide.",
-      image: "/images/big-data-7216839_1280.png",
+      image: "/images/big-data-7216839_1280.webp",
       bgColor: "hover:bg-green-100",
     },
     {
       title: "Advanced Science",
       description:
         "Explore the latest scientific breakthroughs, from quantum mechanics to biotechnology, and their impact on global development.",
-      image: "/images/artificial-intelligence.png",
+      image: "/images/artificial-intelligence.webp",
       bgColor: "hover:bg-violet-50",
     },
     {
       title: "Education",
       description:
         "Understand modern educational methodologies, digital learning innovations, and strategies to enhance global education systems.",
-      image: "/images/air-3807394_1280.png",
+      image: "/images/air-3807394_1280.webp",
       bgColor: "hover:bg-yellow-50",
     },
     {
       title: "Social Science",
       description:
         "Analyze contemporary social science trends, including human behavior, societal transformations, and global policy impacts.",
-      image: "/images/network (1).png",
+      image: "/images/network (1).webp",
       bgColor: "hover:bg-pink-50",
     },
   ];

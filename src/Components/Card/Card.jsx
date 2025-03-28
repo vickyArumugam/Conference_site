@@ -110,7 +110,7 @@ const PricingTable = () => {
       <div
         className="min-h-auto flex items-center justify-center px-4 py-16"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('/images/network-4851119_1280.jpg')`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('/images/network-4851119_1280.webp')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

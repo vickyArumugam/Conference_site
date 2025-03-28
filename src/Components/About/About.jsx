@@ -1,16 +1,13 @@
 import React from "react";
-import MetaData from "../../Shared/Components/SEO/MetaData"
 
 
 const AboutPage = () => {
-  const pageTitle = "Scope of Conference | ICASMET 2025";
-  const pageDescription = "Explore the scope and topics covered at ICASMET 2025, an international conference on Applied Science and Multidisciplinary Engineering.";
-  const pageUrl = "https://icasmet.com/scope_conference";
- 
+
+
   return (
     <>
-      <MetaData title={pageTitle} description={pageDescription} url={pageUrl} />
-  
+
+
       {/* Section 1 */}
       <section className="bg-gray-100 py-10 flex items-center">
         <div className="container max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 my-10">
@@ -38,7 +35,7 @@ const AboutPage = () => {
               playsInline
               className="rounded-xl shadow-lg w-full max-w-lg aspect-video"
               preload="none"
-              poster="/images/video-placeholder.jpg"
+              poster="/images/video-placeholder.webp"
             >
               Your browser does not support the video tag.
             </video>
@@ -59,7 +56,7 @@ const AboutPage = () => {
               playsInline
               className="rounded-xl shadow-lg w-full max-w-lg aspect-video"
               preload="none"
-              poster="/images/video-placeholder.jpg"
+              poster="/images/video-placeholder.webp"
             >
               Your browser does not support the video tag.
             </video>
@@ -68,7 +65,7 @@ const AboutPage = () => {
           {/* Content Section */}
           <div className="md:w-5/12 text-center md:text-left">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-6 text-center">
-              Multidisciplinary 
+              Multidisciplinary
             </h2>
             <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-justify">
               The Multidisciplinary Engineering & Technology Conference serves

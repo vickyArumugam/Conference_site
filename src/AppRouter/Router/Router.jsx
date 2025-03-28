@@ -14,13 +14,13 @@ import AuthConferenceTracks from "../../Shared/Components/Author/AuthConferenceT
 import ScrollToTop from "./ScrollToTop";
 import ContactDetails from "../../Components/Contact/ContactDetails";
 import PaperSubmissionForm from "../../Shared/Components/Author/paper";
-
+import NotFound from "../../Components/Core/NotFound";
 
 export default function AppRouter() {
   return (
     <div>
       <BrowserRouter>
-      <ScrollToTop />
+        <ScrollToTop />
         <Routes>
           <Route element={<Main />}>
             <Route path="/" element={<Home />} />
@@ -47,8 +47,8 @@ export default function AppRouter() {
             />
             <Route path="/key_dates" element={<KeyDates />} />
             <Route path="/new_paper_submission" element={<Papersubmission />} />
-            <Route path="/contact" element={< ContactDetails/>} />
-
+            <Route path="/contact" element={<ContactDetails />} />
+            <Route path="*" element={<NotFound/>} />
           </Route>
         </Routes>
       </BrowserRouter>
